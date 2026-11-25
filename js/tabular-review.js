@@ -67,7 +67,7 @@
     let pages = [], cut = false;
     if (ext === 'pdf') {
       if (!pdfjsLib) throw new Error(t('common.pdfLoading'));
-      const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+      const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer(), isEvalSupported: false }).promise;
       cut = pdf.numPages > CFG.maxPages;
       for (let i = 1; i <= Math.min(pdf.numPages, CFG.maxPages); i++) {
         const c = await (await pdf.getPage(i)).getTextContent();
@@ -265,13 +265,23 @@
     $('results-t').classList.add('show');
     if (scroll) $('results-t').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  function docActions(r, key) {
+    const can = PdfContext.supports(r);
+    return `<b class="tr-name">${esc(r.name)}</b><div class="tr-acts"><a class="tr-btn" href="${r.url}" download="${esc(r.name)}" title="${esc(t('tabular.download'))}"><span aria-hidden="true">⤓</span> ${t('tabular.ctxDownload')}</a>
+      <button type="button" class="tr-btn" id="tr-ctx" data-r="${r.id}" data-f="${key}" ${can ? '' : 'disabled'}><span aria-hidden="true">◫</span> ${t('tabular.ctxOpen')}</button>${can ? '' : `<small>${t('tabular.ctxOnlyPdf')}</small>`}</div>`;
+  }
+  function openContext(rid, key) {
+    const r = rows.find(x => x.id === rid);
+    $('tr-dlg').close();
+    PdfContext.open(r, runFields.map(f => ({ value: null, check: 'none', risk: 'NONE', ...r.cells[f.key], key: f.key, label: f.label })), key);
+  }
   function openCell(rid, key) {
     const r = rows.find(x => x.id === rid), c = r.cells[key], f = runFields.find(x => x.key === key);
     const lbl = { ok: 'verified', bad: 'unverified', scan: 'noText' }[c.check];
     const page = c.page == null ? t('tabular.noPage') : c.check === 'ok' ? t('tabular.pageN', { n: c.page }) : t('tabular.pageUnsure', { n: c.page });
     $('tr-dlg-body').innerHTML = `
       <div class="tr-dlg-hd"><div><span class="tr-lbl">${t('tabular.document')} ${r.id}</span>
-        ${r.url ? `<a class="tr-dl" href="${r.url}" download="${esc(r.name)}" title="${esc(t('tabular.download'))}"><span aria-hidden="true">⤓</span> ${esc(r.name)}</a>` : `<b>${esc(r.name)}</b><small>${t('tabular.noDownload')}</small>`}</div>
+        ${r.url ? `${docActions(r, key)}` : `<b>${esc(r.name)}</b><small>${t('tabular.noDownload')}</small>`}</div>
         <div class="tr-page"><span class="tr-lbl">${t('tabular.page')}</span><b>${esc(page)}</b></div></div>
       <span class="tr-lbl">${esc(f.ask)}</span><h3>${esc(f.label)}</h3>
       <p class="tr-val">${c.risk !== 'NONE' ? `<i class="dot ${c.risk}" title="${esc(t('tabular.sevName.' + c.risk))}"></i>` : ''}${esc(c.value)}</p>
@@ -410,5 +420,9 @@
     row.classList.add('hit'); setTimeout(() => row.classList.remove('hit'), 2000);
   });
   $('tr-close').addEventListener('click', () => $('tr-dlg').close());
+  $('tr-dlg').addEventListener('click', e => {
+    const c = e.target.closest('#tr-ctx');
+    if (c) openContext(c.dataset.r, c.dataset.f);
+  });
   setTemplate('dd'); renderFiles();
 })();

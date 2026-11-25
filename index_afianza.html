@@ -1427,11 +1427,27 @@
     .tr-foot { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-top: 12px; font-size: .74rem; color: var(--text-muted); }
     #tr-dlg { margin: auto; width: min(760px, 92vw); max-height: 88vh; overflow: auto; border: 1px solid var(--border); border-radius: 10px; padding: 24px; line-height: 1.6; font-size: .85rem; } #tr-dlg::backdrop { background: rgba(24,22,15,.45); }
     .tr-dlg-hd { display: flex; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 16px; }
-    .tr-dlg-hd .tr-lbl { display: block; } .tr-dl { color: var(--iptc); font-weight: 600; font-size: .95rem; overflow-wrap: anywhere; } .tr-page { text-align: right; flex: none; } .tr-page b { font-size: .95rem; }
+    .tr-dlg-hd .tr-lbl { display: block; } .tr-page { text-align: right; flex: none; } .tr-page b { font-size: .95rem; }
     .tr-val { font-size: .95rem; margin: 4px 0 18px; } #tr-dlg blockquote.b-bad, #tr-dlg blockquote.b-scan { border-left-color: var(--pii-c-border); background: var(--bg); }
     #tr-dlg blockquote { border-left: 3px solid var(--iptc); background: var(--iptc-bg); padding: 10px 14px; margin: 12px 0; } #tr-dlg .tr-btn { margin-top: 16px; }
+    .tr-name { font-size: .95rem; overflow-wrap: anywhere; } .tr-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; } #tr-dlg .tr-acts .tr-btn { margin: 0; text-decoration: none; line-height: 1.4; } .tr-acts .tr-btn:hover:not(:disabled) { border-color: var(--iptc); color: var(--iptc); } .tr-acts .tr-btn:disabled { opacity: .5; cursor: not-allowed; } .tr-acts small { color: var(--text-muted); }
+    /* Ver en contexto */
+    #ctx { margin: 0 0 0 auto; padding: 0; border: 0; width: min(1440px, 94vw); max-width: none; height: 100vh; height: 100dvh; max-height: none; background: var(--bg); color: var(--text); overflow: hidden; } #ctx::backdrop { background: rgba(24,22,15,.45); }
+    #ctx[open] { animation: ctx-slide .22s ease-out; } @keyframes ctx-slide { from { transform: translateX(60px); opacity: 0; } } @media (prefers-reduced-motion: reduce) { #ctx[open] { animation: none; } }
+    .ctx-in { display: flex; flex-direction: column; height: 100%; } .ctx-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 340px; }
+    .ctx-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface); font-size: .82rem; } .ctx-bar em { font: 500 .72rem 'DM Mono', monospace; color: var(--iptc); } .ctx-bar b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ctx-bar a { text-decoration: none; } .ctx-bar .tr-btn { padding: 6px 12px; } .ctx-bar .tr-btn:disabled { opacity: .4; } #ctx-page { color: var(--text-muted); white-space: nowrap; margin-right: 6px; }
+    #ctx-view { position: relative; overflow: auto; scrollbar-gutter: stable; padding: 20px; background: #e4e2dc; } .ctx-msg { text-align: center; padding: 60px 20px; font-size: .85rem; }
+    .ctx-sheet { position: relative; margin: 0 auto 16px; background: #fff; box-shadow: 0 1px 6px rgba(24,22,15,.22); } .ctx-sheet canvas { display: block; width: 100%; height: 100%; }
+    .ctx-hl { position: absolute; cursor: pointer; background: rgba(255,214,64,.28); border-bottom: 2px solid #d9a400; mix-blend-mode: multiply; } .ctx-hl:hover { background: rgba(255,214,64,.5); } .ctx-hl.on { z-index: 2; background: rgba(255,196,0,.65); border-bottom-color: #b36b00; box-shadow: 0 0 0 2px rgba(179,107,0,.45); }
+    .ctx-side { display: flex; flex-direction: column; min-height: 0; border-left: 1px solid var(--border); background: var(--surface); padding-top: 14px; } .ctx-side > .tr-lbl { padding: 0 16px 10px; } #ctx-list { overflow: auto; flex: 1; border-top: 1px solid var(--border); }
+    #ctx-note { margin: 0 16px 12px; padding: 8px 10px; border: 1px solid var(--pii-h-border); background: var(--pii-h-bg); color: var(--pii-h); border-radius: 6px; font-size: .74rem; line-height: 1.45; } #ctx-note:empty { display: none; }
+    .ctx-item { display: block; width: 100%; font: inherit; font-size: .8rem; line-height: 1.45; text-align: left; color: var(--text); background: none; border: 0; border-bottom: 1px solid var(--border); border-left: 4px solid transparent; padding: 11px 14px 11px 12px; cursor: pointer; } .ctx-item:hover:not(:disabled) { background: var(--bg); } .ctx-item.on { background: #fff6d6; border-left-color: #d9a400; } .ctx-item:focus-visible { outline: 2px solid var(--iptc); outline-offset: -2px; } .ctx-item:disabled { cursor: default; color: var(--text-muted); font-style: italic; }
+    .ctx-top { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 3px; } .ctx-pg { font: 500 .66rem 'DM Mono', monospace; color: var(--text-muted); white-space: nowrap; } .ctx-val { display: block; overflow-wrap: anywhere; } .ctx-val i { font-style: normal; font-weight: 700; }
+    @media (max-width: 860px) { #ctx { width: 100%; } .ctx-body { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) 38%; } .ctx-side { border-left: 0; border-top: 1px solid var(--border); } .ctx-bar { flex-wrap: wrap; } .ctx-bar b { flex-basis: 70%; } }
     .tabs { overflow-x: auto; overflow-y: hidden; } .tab-btn { white-space: nowrap; }
     main { max-width: 1280px; }
+    /* Barra de scroll siempre presente y recorrido mínimo: los tabs no se mueven al cambiar de panel. */
+    html { overflow-y: scroll; } body { min-height: calc(100vh + 96px); }
 
     /* ===== FRAUDE (Afianza) ===== */
     .fr-item { border: 1px solid var(--border); border-left: 4px solid #c9872b; border-radius: 6px; padding: 13px 16px; margin-top: 10px; }
@@ -1460,7 +1476,7 @@
 <script src="./prompts/es.js"></script>
 <script src="./prompts/en.js"></script>
 <script src="./prompts/de.js"></script>
-  <script src="locales/afianza.js?v=5"></script>
+  <script src="locales/afianza.js?v=6"></script>
   <script src="prompts/tabular.js?v=5"></script>
   <script src="prompts/suite-afianza.js?v=5"></script>
 <script src="./js/i18n.js"></script></head>
@@ -2029,6 +2045,13 @@
         <div class="tr-foot"><span data-i18n="tabular.disclaimer"></span><span id="tr-usage"></span><span><button type="button" class="tr-btn" id="tr-save" data-i18n="tabular.save"></button> <button type="button" class="tr-btn" id="tr-export" data-i18n="tabular.export"></button></span></div>
       </div>
       <dialog id="tr-dlg"><div id="tr-dlg-body"></div><button type="button" class="tr-btn" id="tr-close" data-i18n="tabular.close"></button></dialog>
+      <dialog id="ctx" data-i18n-aria="tabular.ctxTitle"><div class="ctx-in">
+        <div class="ctx-bar"><em id="ctx-id"></em><b id="ctx-name"></b><span id="ctx-page" aria-live="polite"></span>
+          <button type="button" class="tr-btn" id="ctx-out" data-i18n-aria="tabular.ctxOut">−</button><button type="button" class="tr-btn" id="ctx-in" data-i18n-aria="tabular.ctxIn">+</button>
+          <a class="tr-btn" id="ctx-dl" data-i18n="tabular.ctxDownload"></a><button type="button" class="tr-btn" id="ctx-close" data-i18n-aria="tabular.close">✕</button></div>
+        <div class="ctx-body"><div id="ctx-view" tabindex="0"></div>
+          <aside class="ctx-side"><span class="tr-lbl" data-i18n="tabular.ctxFields"></span><p id="ctx-note" role="status"></p><div id="ctx-list"></div></aside></div>
+      </div></dialog>
     </section>
   </main>
 
@@ -2046,12 +2069,9 @@
 
   <script src="./AI Use Case Suite — Logicalis_files/mammoth.browser.min.js"></script>
   <script>
-    // Load PDF.js dynamically
-    let pdfjsLib = null;
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-    s.onload = () => { pdfjsLib = window.pdfjsLib; pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; };
-    document.head.appendChild(s);
+    // PDF.js 3.11.174 en local (cargado en <head>), para que funcione sin internet.
+    const pdfjsLib = window.pdfjsLib;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('./AI Use Case Suite — Logicalis_files/pdf.worker.min.js', document.baseURI).href;
 
     let currentFile = null;
     const $ = id => document.getElementById(id);
@@ -2110,7 +2130,7 @@
       if (ext === 'pdf') {
         if (!pdfjsLib) throw new Error(t('common.pdfLoading'));
         const ab = await f.arrayBuffer();
-        const pdf = await pdfjsLib.getDocument({ data: ab }).promise;
+        const pdf = await pdfjsLib.getDocument({ data: ab, isEvalSupported: false }).promise;
         let t = '';
         for (let i = 1; i <= Math.min(pdf.numPages, 25); i++) {
           const p = await pdf.getPage(i);
@@ -2644,7 +2664,8 @@
       }));
     }
   </script>
-  <script src="js/tabular-review.js?v=5"></script>
+  <script src="js/pdf-context.js?v=7"></script>
+  <script src="js/tabular-review.js?v=8"></script>
   <script src="js/ui-afianza.js?v=5"></script>
   <script src="js/doc-afianza.js?v=5"></script>
   <script src="js/contracts-afianza.js?v=5"></script>

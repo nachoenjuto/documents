@@ -25,6 +25,9 @@ window.I18N.es.tabular = {
   truncated: 'texto recortado', verified: 'Cita localizada en el documento', unverified: 'Cita no localizada: revisar a mano', noText: 'Documento escaneado: cita no comprobable',
   page: 'Página', confidence: 'Confianza del modelo', action: 'Acción', close: 'Cerrar', usage: '{{in}} tokens de entrada · {{out}} de salida · {{s}} s',
   disclaimer: 'Apoyo a la revisión. Requiere validación profesional.',
+  ctxDownload: 'Descargar', ctxOpen: 'Ver en contexto', ctxOnlyPdf: 'Solo disponible para PDF', ctxTitle: 'Documento en contexto', ctxFields: 'Campos extraídos', ctxPage: 'Página {{n}} de {{total}}', ctxShort: 'pág. {{n}}',
+  ctxIn: 'Ampliar', ctxOut: 'Reducir', ctxLoading: 'Cargando el documento...', ctxFailed: 'No se pudo abrir el documento: {{message}}',
+  ctxNoQuote: 'No se ha podido localizar la cita en el texto. Se muestra la página indicada por el modelo: revísala a mano.', ctxScan: 'Documento escaneado: se muestra la página indicada por el modelo, sin resaltado.', ctxNowhere: 'No se ha podido localizar este dato en el documento: revísalo a mano.',
   sev: { HIGH: 'ALTA', MEDIUM: 'MEDIA', LOW: 'BAJA' }
 };
 // Fraude & Riesgo en index_afianza.html (ES/EN/DE).

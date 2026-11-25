@@ -1986,7 +1986,7 @@
       if (ext === 'pdf') {
         if (!pdfjsLib) throw new Error(t('common.pdfLoading'));
         const ab = await f.arrayBuffer();
-        const pdf = await pdfjsLib.getDocument({ data: ab }).promise;
+        const pdf = await pdfjsLib.getDocument({ data: ab, isEvalSupported: false }).promise;
         let t = '';
         for (let i = 1; i <= Math.min(pdf.numPages, 25); i++) {
           const p = await pdf.getPage(i);
