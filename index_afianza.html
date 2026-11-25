@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://elyal2.github.io/document-intelligence.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Use Case Suite — Logicalis</title>
+  <link href="./AI Use Case Suite — Logicalis_files/css2" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f4f2ee;
+      --surface: #ffffff;
+      --border: #e4dfd6;
+      --text: #18160f;
+      --text-muted: #7a7468;
+      --text-faint: #b0aba2;
+      --iptc: #1a5c46;
+      --iptc-bg: #e8f4f0;
+      --iptc-border: #b5d9cd;
+      --fibo: #3d1a78;
+      --fibo-bg: #f0eaf8;
+      --fibo-border: #c9b8e8;
+      --pii-c: #8b1a1a;
+      --pii-c-bg: #fdf0f0;
+      --pii-c-border: #e8b8b8;
+      --pii-h: #7a3d00;
+      --pii-h-bg: #fdf5ec;
+      --pii-h-border: #e8c88a;
+      --pii-m: #1a4a6b;
+      --pii-m-bg: #edf5fc;
+      --pii-m-border: #aacde8;
+      --pii-l: #3a4a1a;
+      --pii-l-bg: #f0f5e8;
+      --pii-l-border: #b8cca0;
+      --np: #5a2d82;
+      --np-bg: #f5f0fc;
+      --np-border: #c8a8e8;
+      --no: #1a4a6b;
+      --no-bg: #edf5fc;
+      --no-border: #9ac8e8;
+      --nl: #1a5c3a;
+      --nl-bg: #edf8f2;
+      --nl-border: #9ad8b8;
+      --nx: #5a4a1a;
+      --nx-bg: #fdf8ec;
+      --nx-border: #d8c88a;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      background: var(--text);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--border);
+    }
+
+    .logo-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .header-r {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .api-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .api-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .api-input {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 7px 30px 7px 12px;
+      border-radius: 6px;
+      color: var(--text);
+      width: 260px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .api-input:focus {
+      border-color: #999;
+    }
+
+    .api-input::placeholder {
+      color: var(--text-faint);
+    }
+
+    .api-dot {
+      position: absolute;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+
+    .api-dot.ok {
+      background: #4db87a;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1020px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 52px 24px 80px;
+    }
+
+    .hero {
+      margin-bottom: 44px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .hero p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    .caps {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cap-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface);
+    }
+
+    .cap-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .input-area {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+
+    .drop-zone {
+      border: 1.5px dashed var(--border);
+      border-radius: 10px;
+      padding: 44px 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      background: var(--bg);
+    }
+
+    .drop-zone:hover,
+    .drop-zone.over {
+      border-color: var(--text);
+      background: #f0ede7;
+    }
+
+    .drop-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      opacity: 0.3;
+    }
+
+    .drop-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .drop-hint {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .fmts {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .fmt {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-faint);
+    }
+
+    #file-input,
+    #file-input-ca,
+    #file-input-cb,
+    #file-input-r {
+      display: none;
+    }
+
+    .file-chip {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .file-chip.show {
+      display: flex;
+    }
+
+    .file-ext {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 4px 7px;
+      border-radius: 4px;
+      background: var(--text);
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .file-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .file-nm {
+      font-size: 0.83rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .file-sz {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .btn-clear {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 4px;
+      border-radius: 4px;
+      transition: color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .btn-clear:hover {
+      color: var(--text);
+    }
+
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .btn-run {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--text);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-run:hover:not(:disabled) {
+      background: #333;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .btn-run:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .btn-run .spin {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .btn-run.loading .spin {
+      display: block;
+    }
+
+    .btn-run.loading .lbl {
+      opacity: 0.7;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .status-txt {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      display: none;
+    }
+
+    .status-txt.show {
+      display: block;
+    }
+
+    .err {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: #fff5f5;
+      border: 1px solid #f0c0c0;
+      border-radius: 7px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: #c00;
+    }
+
+    .err.show {
+      display: block;
+    }
+
+    .results {
+      display: none;
+      animation: up 0.35s ease;
+    }
+
+    .results.show {
+      display: block;
+    }
+
+    @keyframes up {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .doc-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding: 14px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .doc-banner-l {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .doc-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .doc-val {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .doc-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .doc-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.07em;
+      padding: 4px 9px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .sec-div {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 32px 0 20px;
+    }
+
+    .sec-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .sec-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .g2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .g2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .card-hd {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+
+    .card-ico {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-ttl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .meta-row {
+      display: flex;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .meta-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .meta-row:first-child {
+      padding-top: 0;
+    }
+
+    .mk {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-faint);
+      min-width: 90px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .mv {
+      font-size: 0.83rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .summary-body {
+      font-size: 0.88rem;
+      line-height: 1.72;
+      color: var(--text);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .txo-tag {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 8px 11px;
+      border-radius: 7px;
+      border: 1px solid;
+      cursor: default;
+      transition: transform 0.12s;
+    }
+
+    .txo-tag:hover {
+      transform: translateY(-1px);
+    }
+
+    .t-code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      opacity: 0.55;
+    }
+
+    .t-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .t-path {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.56rem;
+      opacity: 0.5;
+      margin-top: 1px;
+      line-height: 1.3;
+    }
+
+    .t-conf {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      opacity: 0.45;
+      margin-top: 2px;
+    }
+
+    .txo-tag.iptc {
+      background: var(--iptc-bg);
+      border-color: var(--iptc-border);
+      color: var(--iptc);
+    }
+
+    .txo-tag.sec {
+      background: var(--fibo-bg);
+      border-color: var(--fibo-border);
+      color: var(--fibo);
+    }
+
+    .ner-group {
+      margin-bottom: 18px;
+    }
+
+    .ner-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .ner-gh {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .ner-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .ner-cnt {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      color: var(--text-faint);
+    }
+
+    .ner-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ner-chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid;
+      font-size: 0.78rem;
+      cursor: default;
+      transition: transform 0.12s;
+    }
+
+    .ner-chip:hover {
+      transform: translateY(-1px);
+    }
+
+    .nc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .nc-sub {
+      opacity: 0.5;
+      font-size: 0.7rem;
+    }
+
+    .nc-n {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      opacity: 0.45;
+      margin-left: 2px;
+    }
+
+    .ner-chip.p {
+      background: var(--np-bg);
+      border-color: var(--np-border);
+      color: var(--np);
+    }
+
+    .ner-chip.p .nc-dot {
+      background: var(--np);
+    }
+
+    .ner-chip.o {
+      background: var(--no-bg);
+      border-color: var(--no-border);
+      color: var(--no);
+    }
+
+    .ner-chip.o .nc-dot {
+      background: var(--no);
+    }
+
+    .ner-chip.l {
+      background: var(--nl-bg);
+      border-color: var(--nl-border);
+      color: var(--nl);
+    }
+
+    .ner-chip.l .nc-dot {
+      background: var(--nl);
+    }
+
+    .ner-chip.x {
+      background: var(--nx-bg);
+      border-color: var(--nx-border);
+      color: var(--nx);
+    }
+
+    .ner-chip.x .nc-dot {
+      background: var(--nx);
+    }
+
+    .pii-risk {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      border: 1px solid;
+    }
+
+    .pii-risk.critical {
+      background: var(--pii-c-bg);
+      border-color: var(--pii-c-border);
+    }
+
+    .pii-risk.high {
+      background: var(--pii-h-bg);
+      border-color: var(--pii-h-border);
+    }
+
+    .pii-risk.medium {
+      background: var(--pii-m-bg);
+      border-color: var(--pii-m-border);
+    }
+
+    .pii-risk.low {
+      background: var(--pii-l-bg);
+      border-color: var(--pii-l-border);
+    }
+
+    .pii-risk-ico {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .pii-risk-lvl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .pii-risk.critical .pii-risk-lvl {
+      color: var(--pii-c);
+    }
+
+    .pii-risk.high .pii-risk-lvl {
+      color: var(--pii-h);
+    }
+
+    .pii-risk.medium .pii-risk-lvl {
+      color: var(--pii-m);
+    }
+
+    .pii-risk.low .pii-risk-lvl {
+      color: var(--pii-l);
+    }
+
+    .pii-risk-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .pii-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pii-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 13px;
+      border-radius: 7px;
+      border: 1px solid;
+    }
+
+    .pii-item.critical {
+      background: var(--pii-c-bg);
+      border-color: var(--pii-c-border);
+    }
+
+    .pii-item.high {
+      background: var(--pii-h-bg);
+      border-color: var(--pii-h-border);
+    }
+
+    .pii-item.medium {
+      background: var(--pii-m-bg);
+      border-color: var(--pii-m-border);
+    }
+
+    .pii-item.low {
+      background: var(--pii-l-bg);
+      border-color: var(--pii-l-border);
+    }
+
+    .pii-il {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pii-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .pii-item.critical .pii-cat {
+      color: var(--pii-c);
+    }
+
+    .pii-item.high .pii-cat {
+      color: var(--pii-h);
+    }
+
+    .pii-item.medium .pii-cat {
+      color: var(--pii-m);
+    }
+
+    .pii-item.low .pii-cat {
+      color: var(--pii-l);
+    }
+
+    .pii-desc {
+      font-size: 0.8rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .pii-ex {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .pii-sev {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      padding: 3px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pii-item.critical .pii-sev {
+      background: var(--pii-c-border);
+      color: var(--pii-c);
+    }
+
+    .pii-item.high .pii-sev {
+      background: var(--pii-h-border);
+      color: var(--pii-h);
+    }
+
+    .pii-item.medium .pii-sev {
+      background: var(--pii-m-border);
+      color: var(--pii-m);
+    }
+
+    .pii-item.low .pii-sev {
+      background: var(--pii-l-border);
+      color: var(--pii-l);
+    }
+
+    .conf-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .conf-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .conf-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      min-width: 100px;
+    }
+
+    .conf-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .conf-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--text);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .conf-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text);
+      min-width: 34px;
+      text-align: right;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .foot-l {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--text-faint);
+    }
+
+    .foot-r {
+      display: flex;
+      gap: 6px;
+    }
+
+    .fbadge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.09em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-faint);
+      text-transform: uppercase;
+    }
+
+    .fbadge.i {
+      border-color: var(--iptc-border);
+      color: var(--iptc);
+      background: var(--iptc-bg);
+    }
+
+    .fbadge.f {
+      border-color: var(--fibo-border);
+      color: var(--fibo);
+      background: var(--fibo-bg);
+    }
+
+    .fbadge.p {
+      border-color: var(--pii-c-border);
+      color: var(--pii-c);
+      background: var(--pii-c-bg);
+    }
+
+    /* ===== TABS ===== */
+    .tabs {
+      display: flex;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.83rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 2px;
+      margin-right: 26px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transform: translateY(1px);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* ===== DUAL DROPZONE (contratos A/B) ===== */
+    .dual-drop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .dual-drop {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .drop-zone-sm {
+      padding: 28px 18px;
+    }
+
+    .drop-zone-sm .drop-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 10px;
+    }
+
+    .drop-zone-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 10px;
+    }
+
+    .opt-tag {
+      text-transform: none;
+      letter-spacing: 0.02em;
+      opacity: 0.75;
+    }
+
+    /* ===== MODE / SCORE BADGES ===== */
+    .mode-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--fibo-border);
+      background: var(--fibo-bg);
+      color: var(--fibo);
+      flex-shrink: 0;
+    }
+
+    .pii-risk .score-big {
+      margin-left: auto;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .score-big .sb-num {
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .score-big .sb-max {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--text-faint);
+    }
+
+    /* ===== DISCREPANCY CARDS (comparación A/B) ===== */
+    .disc-card {
+      padding: 13px 15px;
+      border-radius: 8px;
+      border: 1px solid;
+      margin-bottom: 10px;
+    }
+
+    .disc-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .disc-card.critical { background: var(--pii-c-bg); border-color: var(--pii-c-border); }
+    .disc-card.high { background: var(--pii-h-bg); border-color: var(--pii-h-border); }
+    .disc-card.medium { background: var(--pii-m-bg); border-color: var(--pii-m-border); }
+    .disc-card.low { background: var(--pii-l-bg); border-color: var(--pii-l-border); }
+
+    .disc-hd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .disc-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .disc-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 560px) {
+      .disc-cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .disc-col-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 3px;
+    }
+
+    .disc-col-txt {
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .disc-rec {
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--text-muted);
+      padding-top: 9px;
+      margin-top: 2px;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    /* ===== ANOMALY CARDS (fraude) ===== */
+    .anom-card {
+      padding: 11px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      margin-bottom: 8px;
+    }
+
+    .anom-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .anom-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .anom-desc {
+      font-size: 0.8rem;
+      color: var(--text);
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .anom-dev {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ===== RECOMMENDATION ROWS ===== */
+    .rec-item {
+      font-size: 0.83rem;
+      line-height: 1.6;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rec-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .rec-item:first-child {
+      padding-top: 0;
+    }
+
+    /* ===== LANGUAGE MENU ===== */
+    .lang-menu {
+      position: relative;
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 9px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      border-color: #999;
+      outline: none;
+    }
+
+    .lang-btn .chev {
+      transition: transform 0.2s;
+    }
+
+    .lang-menu.open .lang-btn .chev {
+      transform: rotate(180deg);
+    }
+
+    .lang-list {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 6px);
+      min-width: 140px;
+      list-style: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      z-index: 200;
+    }
+
+    .lang-menu.open .lang-list {
+      display: block;
+    }
+
+    .lang-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.8rem;
+      padding: 7px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .lang-list li:hover,
+    .lang-list li:focus-visible {
+      background: var(--bg);
+      outline: none;
+    }
+
+    .lang-list li .lang-code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--text-faint);
+    }
+
+    .lang-list li[aria-selected="true"] {
+      font-weight: 600;
+    }
+
+    @media (max-width: 680px) {
+      header {
+        padding: 0 16px;
+      }
+
+      .logo-sep,
+      .logo-sub,
+      .api-lbl {
+        display: none;
+      }
+
+      .api-input {
+        width: 150px;
+      }
+    }
+    /* ===== TABULAR REVIEW ===== */
+    .tr-tpls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 8px 0 18px; }
+    .tr-tpl { font: inherit; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; cursor: pointer; color: var(--text); }
+    .tr-tpl.on { border-color: var(--text); box-shadow: inset 0 0 0 1px var(--text); }
+    .tr-tpl b { display: block; font-size: .85rem; } .tr-tpl small { color: var(--text-muted); font-size: .7rem; }
+    .tr-lbl { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+    .tr-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+    .tr-chip { display: inline-flex; gap: 6px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 4px 10px; font-size: .75rem; }
+    .tr-chip em, #tr-table th em { font: 500 .68rem 'DM Mono', monospace; color: var(--iptc); margin-right: 4px; }
+    .tr-chip button { border: 0; background: none; cursor: pointer; color: var(--text-muted); font-size: .9rem; }
+    .tr-add { display: flex; gap: 8px; margin-bottom: 22px; }
+    .tr-add input { flex: 1; min-width: 0; font: inherit; font-size: .8rem; padding: 9px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+    .tr-btn { font: inherit; font-size: .78rem; padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); cursor: pointer; color: var(--text); }
+    .tr-alert { border: 1px solid var(--border); border-left-width: 4px; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-size: .8rem; line-height: 1.5; }
+    .tr-alert.HIGH { border-left-color: var(--pii-c); } .tr-alert.MEDIUM { border-left-color: #c9872b; } .tr-alert.LOW { border-left-color: var(--pii-m); }
+    .tr-alert-hd { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 4px; }
+    .tr-sev { font: 500 .62rem 'DM Mono', monospace; border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; }
+    .tr-doc { font: 500 .66rem 'DM Mono', monospace; border: 1px solid var(--iptc-border); background: var(--iptc-bg); color: var(--iptc); border-radius: 4px; padding: 2px 6px; cursor: pointer; }
+    .tr-act { color: var(--text-muted); font-size: .78rem; margin-top: 4px; } .tr-warn { color: var(--pii-c); font-size: .78rem; }
+    .tr-scroll { overflow: auto; max-height: 75vh; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+    #tr-table { border-collapse: separate; border-spacing: 0; font-size: .74rem; line-height: 1.4; min-width: 100%; }
+    #tr-table th, #tr-table td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 8px 10px; min-width: 140px; max-width: 220px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+    #tr-table thead th { position: sticky; top: 0; background: var(--bg); z-index: 2; }
+    #tr-table tr > th:first-child { position: sticky; left: 0; background: var(--bg); z-index: 1; }
+    #tr-table thead th:first-child { z-index: 3; } #tr-table small { display: block; }
+    #tr-table td.r-HIGH { background: var(--pii-c-bg); } #tr-table td.r-MEDIUM { background: var(--pii-h-bg); }
+    #tr-table tr.hit td, #tr-table tr.hit th { background: var(--iptc-bg) !important; }
+    .tr-miss { color: var(--text-muted); font-style: italic; }
+    .tr-cell { font: inherit; color: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; overflow-wrap: anywhere; } .tr-cell:hover { text-decoration: underline; }
+    .q-ok { color: var(--iptc); } .q-bad { color: var(--pii-c); } .q-scan { color: var(--pii-h); } .tr-cell i { font-style: normal; font-weight: 700; }
+    .dot { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid transparent; }
+    .dot.HIGH { background: var(--pii-c); } .dot.MEDIUM { background: #c9872b; } .dot.LOW { background: var(--pii-m); }
+    .tr-legend { position: sticky; top: 60px; z-index: 20; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 6px 16px; padding: 10px 0; background: var(--bg); font-size: .74rem; }
+    .tr-key { display: inline-flex; align-items: center; } .tr-key b { margin-left: 5px; font: 500 .68rem 'DM Mono', monospace; color: var(--text-muted); } .tr-key i[class^=q-] { font-style: normal; font-weight: 700; margin-right: 5px; }
+    .tr-sep { width: 1px; height: 14px; background: var(--border); }
+    .tr-title { font-size: 1rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 10px; }
+    .tr-bullets { margin: 0 0 18px 18px; font-size: .84rem; line-height: 1.55; } .tr-bullets li { margin-bottom: 5px; padding-left: 4px; } .tr-bullets li::marker { color: var(--iptc); }
+    .tr-saved:empty { display: none; } .tr-saved { border: 1px solid var(--pii-h-border); background: var(--pii-h-bg); color: var(--pii-h); border-radius: 6px; padding: 9px 14px; font-size: .78rem; margin-bottom: 6px; }
+    .tr-busy { opacity: .55; pointer-events: none; }
+    #tr-table td.r-LOW { background: var(--pii-m-bg); }
+    .tr-foot { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-top: 12px; font-size: .74rem; color: var(--text-muted); }
+    #tr-dlg { margin: auto; width: min(760px, 92vw); max-height: 88vh; overflow: auto; border: 1px solid var(--border); border-radius: 10px; padding: 24px; line-height: 1.6; font-size: .85rem; } #tr-dlg::backdrop { background: rgba(24,22,15,.45); }
+    .tr-dlg-hd { display: flex; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 16px; }
+    .tr-dlg-hd .tr-lbl { display: block; } .tr-dl { color: var(--iptc); font-weight: 600; font-size: .95rem; overflow-wrap: anywhere; } .tr-page { text-align: right; flex: none; } .tr-page b { font-size: .95rem; }
+    .tr-val { font-size: .95rem; margin: 4px 0 18px; } #tr-dlg blockquote.b-bad, #tr-dlg blockquote.b-scan { border-left-color: var(--pii-c-border); background: var(--bg); }
+    #tr-dlg blockquote { border-left: 3px solid var(--iptc); background: var(--iptc-bg); padding: 10px 14px; margin: 12px 0; } #tr-dlg .tr-btn { margin-top: 16px; }
+    .tabs { overflow-x: auto; overflow-y: hidden; } .tab-btn { white-space: nowrap; }
+    main { max-width: 1280px; }
+
+    /* ===== FRAUDE (Afianza) ===== */
+    .fr-item { border: 1px solid var(--border); border-left: 4px solid #c9872b; border-radius: 6px; padding: 13px 16px; margin-top: 10px; }
+    .fr-item.critical { border-left-color: #5c0f0f; } .fr-item.high { border-left-color: var(--pii-c); } .fr-item.low { border-left-color: var(--pii-m); }
+    .fr-hd { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .86rem; } .fr-meta { margin-left: auto; color: var(--text-muted); font-size: .72rem; }
+    .fr-tag { font: 500 .62rem 'DM Mono', monospace; text-transform: uppercase; border-radius: 4px; padding: 3px 7px; border: 1px solid; }
+    .fr-tag.critical { background: #5c0f0f; color: #fff; } .fr-tag.high { background: var(--pii-c-bg); color: var(--pii-c); } .fr-tag.medium { background: var(--pii-h-bg); color: var(--pii-h); } .fr-tag.low { background: var(--pii-m-bg); color: var(--pii-m); }
+    .fr-ul, .fr-ol { margin: 8px 0 0 18px; font-size: .81rem; line-height: 1.55; } .fr-ul li, .fr-ol li { margin-bottom: 4px; padding-left: 4px; } .fr-ul li::marker, .fr-ol li::marker { color: var(--iptc); } .fr-ol { margin-top: 0; } .fr-ol li { margin-bottom: 8px; }
+    .fr-sub { font-size: .9rem; margin: 22px 0 4px; } .fr-none { font-size: .8rem; color: var(--text-muted); }
+    .fr-score { display: flex; gap: 24px; align-items: center; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; } .fr-score.critical, .fr-score.high { background: var(--pii-c-bg); } .fr-score.medium { background: var(--pii-h-bg); } .fr-score.low { background: var(--pii-m-bg); }
+    .fr-num { font-size: 2.6rem; font-weight: 600; line-height: 1; white-space: nowrap; } .fr-num small { font-size: .8rem; color: var(--text-muted); margin-left: 4px; } .fr-score-b { flex: 1; min-width: 0; }
+    .fr-bar { height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; margin-top: 6px; } .fr-bar i { display: block; height: 100%; background: #c9872b; } .fr-bar i.critical, .fr-bar i.high { background: var(--pii-c); } .fr-bar i.low { background: var(--pii-m); }
+    .fr-legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 16px; align-items: center; font-size: .74rem; }
+    .fr-row { display: grid; grid-template-columns: 130px 1fr 44px; gap: 14px; align-items: center; font-size: .8rem; padding: 6px 0; } .fr-row .fr-bar { margin: 0; } .fr-row b { text-align: right; }
+    .fr-item.info { border-left-color: var(--fibo); } .fr-tag.info { background: var(--fibo-bg); color: var(--fibo); } .fr-bar i.plain { background: var(--iptc); } .dot.CRITICAL { background: #5c0f0f; }
+    .fr-ab { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; } .fr-ab > div { background: var(--bg); border-radius: 6px; padding: 10px 12px; } .fr-ab p { font-size: .81rem; line-height: 1.5; margin-top: 4px; } .fr-lead { font-size: .84rem; line-height: 1.5; margin-bottom: 10px; }
+    .fr-ner { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 4px 28px; } .fr-pct { font: 500 .68rem 'DM Mono', monospace; color: var(--text-muted); } .fr-taxo small { display: block; color: var(--text-muted); font-size: .7rem; } .g2.af-stack { grid-template-columns: 1fr; }
+    @media (max-width: 680px) { .fr-ab { grid-template-columns: 1fr; } }
+  </style>
+<script src="./AI Use Case Suite — Logicalis_files/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+<script src="js/i18next-fallback.js?v=5"></script>
+<script src="./locales/es.js"></script>
+<script src="./locales/en.js"></script>
+<script src="./locales/de.js"></script>
+<script src="./prompts/es.js"></script>
+<script src="./prompts/en.js"></script>
+<script src="./prompts/de.js"></script>
+  <script src="locales/afianza.js?v=5"></script>
+  <script src="prompts/tabular.js?v=5"></script>
+  <script src="prompts/suite-afianza.js?v=5"></script>
+<script src="./js/i18n.js"></script></head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"></rect>
+          <rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.55"></rect>
+          <rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.55"></rect>
+          <rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.25"></rect>
+        </svg>
+      </div>
+      <span class="logo-name">AI Use Case Suite</span>
+      <div class="logo-sep" style="width:1px;height:18px;background:var(--border)"></div>
+      <span class="logo-sub" id="logo-sub" data-i18n="tabs.docSub">NLP · NER · PII · Taxonomy</span>
+    </div>
+    <div class="header-r">
+      <div class="lang-menu" id="lang-menu">
+        <button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="header.language">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="5.6" stroke="currentColor" stroke-width="1.1"></circle>
+            <path d="M1.4 7h11.2M7 1.4c1.6 1.6 2.4 3.5 2.4 5.6S8.6 11 7 12.6M7 1.4C5.4 3 4.6 4.9 4.6 7s.8 4 2.4 5.6" stroke="currentColor" stroke-width="1.1"></path>
+          </svg>
+          <span id="lang-current">ES</span>
+          <svg class="chev" width="9" height="9" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <ul class="lang-list" id="lang-list" role="listbox">
+          <li role="option" tabindex="0" data-lang="es" lang="es">Español <span class="lang-code">ES</span></li>
+          <li role="option" tabindex="0" data-lang="en" lang="en">English <span class="lang-code">EN</span></li>
+          <li role="option" tabindex="0" data-lang="de" lang="de">Deutsch <span class="lang-code">DE</span></li>
+        </ul>
+      </div>
+      <span class="api-lbl" data-i18n="header.apiKey">API Key</span>
+      <div class="api-wrap">
+        <input type="password" class="api-input" id="api-key" placeholder="sk-ant-api03-...">
+        <div class="api-dot" id="api-dot"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="doc" data-sub="NLP · NER · PII · Taxonomy" data-i18n="tabs.doc" data-i18n-sub="tabs.docSub">Document Intelligence</button>
+      <button class="tab-btn" data-tab="contracts" data-sub="Cláusulas · Compliance · Due Diligence" data-i18n="tabs.contracts" data-i18n-sub="tabs.contractsSub">Contratos &amp; Compliance</button>
+      <button class="tab-btn" data-tab="fraud" data-sub="Fraude · Riesgo · Alertas" data-i18n="tabs.fraud" data-i18n-sub="tabs.fraudSub">Fraude &amp; Riesgo</button>
+      <button class="tab-btn" data-tab="tabular" data-sub="" data-i18n="tabs.tabular" data-i18n-sub="tabs.tabularSub">Tabular Review</button>
+    </div>
+
+    <section class="tab-panel" id="panel-doc" style="display: block;">
+    <div class="hero">
+      <h1 data-i18n-html="doc.heroTitle">Analiza <em>cualquier</em> documento<br>con inteligencia semántica</h1>
+      <p data-i18n="doc.heroText">Extrae metadatos, detecta entidades nombradas, clasifica por taxonomías estándar e identifica datos personales
+        sensibles automáticamente.</p>
+      <div class="caps">
+        <div class="cap-pill"><span class="cap-dot" style="background:#4db87a"></span><span data-i18n="doc.capMetadata">Metadatos</span></div>
+        <div class="cap-pill"><span class="cap-dot" style="background:var(--np)"></span><span data-i18n="doc.capNer">NER · Personas · Orgs · Lugares</span></div>
+        <div class="cap-pill"><span class="cap-dot" style="background:var(--iptc)"></span><span data-i18n="doc.capIptc">IPTC Media Topics</span></div>
+        <div class="cap-pill"><span class="cap-dot" style="background:var(--fibo)"></span><span data-i18n="doc.capTaxonomy">Taxonomía adaptativa</span></div>
+        <div class="cap-pill"><span class="cap-dot" style="background:var(--pii-c)"></span><span data-i18n="doc.capPii">PII Detection · GDPR</span></div>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="drop-zone" id="drop-zone">
+        <div class="drop-icon">
+          <svg viewBox="0 0 44 44" fill="none">
+            <rect x="8" y="4" width="20" height="28" rx="2.5" stroke="#18160f" stroke-width="1.6"></rect>
+            <path d="M24 4l8 8" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+            <rect x="24" y="4" width="8" height="8" rx="1.5" stroke="#18160f" stroke-width="1.6"></rect>
+            <circle cx="33" cy="33" r="7" stroke="#18160f" stroke-width="1.6"></circle>
+            <path d="M33 30v6M30 33h6" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <p class="drop-title" data-i18n="doc.dropTitle">Arrastra un documento aquí</p>
+        <p class="drop-hint" data-i18n="common.dropHint">o haz clic para seleccionar</p>
+        <div class="fmts">
+          <span class="fmt">PDF</span><span class="fmt">DOCX</span><span class="fmt">PPTX</span><span class="fmt">TXT</span>
+        </div>
+        <input type="file" id="file-input" accept=".pdf,.docx,.doc,.pptx,.ppt,.txt">
+      </div>
+
+      <div class="file-chip" id="file-chip">
+        <span class="file-ext" id="f-ext">PDF</span>
+        <div class="file-info">
+          <div class="file-nm" id="f-name">—</div>
+          <div class="file-sz" id="f-sz">—</div>
+        </div>
+        <button class="btn-clear" id="btn-clear">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-run" id="btn-run" disabled="">
+          <div class="spin"></div><span class="lbl" data-i18n="doc.run">Analizar documento</span>
+        </button>
+        <span class="status-txt" id="status-txt" data-i18n="common.processing">Procesando con Claude...</span>
+      </div>
+      <div class="err" id="err"></div>
+    </div>
+
+    <div class="results" id="results">
+
+      <div class="doc-banner">
+        <div class="doc-banner-l">
+          <div class="doc-icon" id="d-icon">📄</div>
+          <div>
+            <div class="doc-lbl" data-i18n="common.docTypeDetected">Tipo de documento detectado</div>
+            <div class="doc-val" id="d-type">—</div>
+          </div>
+        </div>
+        <div class="doc-tags" id="d-tags"></div>
+      </div>
+
+      <!-- METADATA + SUMMARY -->
+      <div class="sec-div">
+        <div class="sec-line"></div><span class="sec-lbl" data-i18n="doc.secMetaSummary">Metadatos y resumen</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="g2">
+        <div class="card">
+          <div class="card-hd">
+            <div class="card-ico" style="background:#fef6e4">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <rect x="1" y="1" width="12" height="12" rx="2" stroke="#c47d00" stroke-width="1.2"></rect>
+                <path d="M4 5h6M4 8h4" stroke="#c47d00" stroke-width="1.2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <span class="card-ttl" data-i18n="doc.metadata">Metadatos</span>
+          </div>
+          <div id="meta-body"></div>
+        </div>
+        <div class="card">
+          <div class="card-hd">
+            <div class="card-ico" style="background:#f2f2f2">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 3h10M2 6h10M2 9h6" stroke="#555" stroke-width="1.2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <span class="card-ttl" data-i18n="doc.summary">Resumen semántico</span>
+          </div>
+          <p class="summary-body" id="summary-body">—</p>
+        </div>
+      </div>
+
+      <!-- NER -->
+      <div class="sec-div">
+        <div class="sec-line"></div><span class="sec-lbl" data-i18n="doc.secNer">Named Entity Recognition</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-ico" style="background:var(--np-bg)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="4.5" r="2.5" stroke="#5a2d82" stroke-width="1.2"></circle>
+              <path d="M2 12c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#5a2d82" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <span class="card-ttl" data-i18n="doc.entities">Entidades detectadas</span>
+        </div>
+        <div id="ner-body"></div>
+      </div>
+
+      <!-- TAXONOMY -->
+      <div class="sec-div">
+        <div class="sec-line"></div><span class="sec-lbl" data-i18n="doc.secTaxonomy">Clasificación taxonómica</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="g2">
+        <div class="card">
+          <div class="card-hd">
+            <div class="card-ico" style="background:var(--iptc-bg)">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="5.5" stroke="#1a5c46" stroke-width="1.2"></circle>
+                <path d="M7 4.5V7l2 2" stroke="#1a5c46" stroke-width="1.2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <span class="card-ttl" data-i18n="doc.iptc">IPTC Media Topics</span>
+          </div>
+          <div class="tag-list" id="iptc-tags"></div>
+        </div>
+        <div class="card">
+          <div class="card-hd">
+            <div class="card-ico" style="background:var(--fibo-bg)">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 12V6.5L7 2l5 4.5V12" stroke="#3d1a78" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <rect x="5" y="8" width="4" height="4" stroke="#3d1a78" stroke-width="1.2"></rect>
+              </svg>
+            </div>
+            <span class="card-ttl" id="sec-taxo-title" data-i18n="doc.secondaryTaxonomy">Taxonomía secundaria</span>
+          </div>
+          <div class="tag-list" id="sec-tags"></div>
+        </div>
+      </div>
+
+      <!-- PII -->
+      <div class="sec-div">
+        <div class="sec-line"></div><span class="sec-lbl" data-i18n="doc.secPii">Detección PII · GDPR</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-ico" style="background:var(--pii-c-bg)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1L1.5 4v4.5C1.5 11.1 4 13 7 13s5.5-1.9 5.5-4.5V4L7 1z" stroke="#8b1a1a" stroke-width="1.2" stroke-linejoin="round"></path>
+              <path d="M5 7l1.5 1.5L9 5.5" stroke="#8b1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <span class="card-ttl" data-i18n="doc.piiCard">Datos personales identificados</span>
+        </div>
+        <div id="pii-body"></div>
+      </div>
+
+      <!-- CONFIDENCE -->
+      <div class="sec-div">
+        <div class="sec-line"></div><span class="sec-lbl" data-i18n="doc.secConfidence">Confidence score</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="card">
+        <div id="conf-body"></div>
+      </div>
+
+    </div>
+    </section>
+
+    <!-- ============ PANEL: CONTRATOS & COMPLIANCE ============ -->
+    <section class="tab-panel" id="panel-contracts" style="display: none;">
+      <div class="hero">
+        <h1 data-i18n-html="contracts.heroTitle">Compara y audita <em>contratos</em><br>con criterio de compliance</h1>
+        <p data-i18n="contracts.heroText">Sube un documento para analizar cláusulas, riesgos de compliance y alertas regulatorias, o añade un segundo
+          documento para comparar dos versiones cláusula a cláusula.</p>
+        <div class="caps">
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--fibo)"></span><span data-i18n="contracts.capClauses">Análisis de cláusulas</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:#4db87a"></span><span data-i18n="contracts.capAb">Comparación A/B</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--pii-c)"></span><span data-i18n="contracts.capCompliance">Riesgos de compliance</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--iptc)"></span><span data-i18n="contracts.capRegulatory">Alertas regulatorias</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--np)"></span><span data-i18n="contracts.capDd">Due Diligence Score</span></div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="dual-drop">
+          <div>
+            <div class="drop-zone-lbl" data-i18n="contracts.docALabel">Documento A · obligatorio</div>
+            <div class="drop-zone drop-zone-sm" id="drop-zone-ca">
+              <div class="drop-icon">
+                <svg viewBox="0 0 44 44" fill="none">
+                  <rect x="8" y="4" width="20" height="28" rx="2.5" stroke="#18160f" stroke-width="1.6"></rect>
+                  <path d="M24 4l8 8" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+                  <rect x="24" y="4" width="8" height="8" rx="1.5" stroke="#18160f" stroke-width="1.6"></rect>
+                  <circle cx="33" cy="33" r="7" stroke="#18160f" stroke-width="1.6"></circle>
+                  <path d="M33 30v6M30 33h6" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <p class="drop-title" data-i18n="contracts.dropTitleA">Sube el contrato</p>
+              <p class="drop-hint" data-i18n="common.dropHint">o haz clic para seleccionar</p>
+              <input type="file" id="file-input-ca" accept=".pdf,.docx,.doc,.txt">
+            </div>
+            <div class="file-chip" id="file-chip-ca">
+              <span class="file-ext" id="fca-ext">PDF</span>
+              <div class="file-info">
+                <div class="file-nm" id="fca-name">—</div>
+                <div class="file-sz" id="fca-sz">—</div>
+              </div>
+              <button class="btn-clear" id="btn-clear-ca">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="drop-zone-lbl" data-i18n-html="contracts.docBLabel">Documento B <span class="opt-tag">· opcional, para comparar</span></div>
+            <div class="drop-zone drop-zone-sm" id="drop-zone-cb">
+              <div class="drop-icon">
+                <svg viewBox="0 0 44 44" fill="none">
+                  <rect x="8" y="4" width="20" height="28" rx="2.5" stroke="#18160f" stroke-width="1.6"></rect>
+                  <path d="M24 4l8 8" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+                  <rect x="24" y="4" width="8" height="8" rx="1.5" stroke="#18160f" stroke-width="1.6"></rect>
+                  <circle cx="33" cy="33" r="7" stroke="#18160f" stroke-width="1.6"></circle>
+                  <path d="M33 30v6M30 33h6" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <p class="drop-title" data-i18n="contracts.dropTitleB">Sube la versión a comparar</p>
+              <p class="drop-hint" data-i18n="common.dropHint">o haz clic para seleccionar</p>
+              <input type="file" id="file-input-cb" accept=".pdf,.docx,.doc,.txt">
+            </div>
+            <div class="file-chip" id="file-chip-cb">
+              <span class="file-ext" id="fcb-ext">PDF</span>
+              <div class="file-info">
+                <div class="file-nm" id="fcb-name">—</div>
+                <div class="file-sz" id="fcb-sz">—</div>
+              </div>
+              <button class="btn-clear" id="btn-clear-cb">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="btn-run" id="btn-run-c" disabled="">
+            <div class="spin"></div><span class="lbl" data-i18n="contracts.run">Analizar</span>
+          </button>
+          <span class="status-txt" id="status-txt-c" data-i18n="common.processing">Procesando con Claude...</span>
+        </div>
+        <div class="err" id="err-c"></div>
+      </div>
+
+      <div class="results" id="results-c">
+
+        <div class="doc-banner">
+          <div class="doc-banner-l">
+            <div class="doc-icon" id="c-icon">📄</div>
+            <div>
+              <div class="doc-lbl" data-i18n="common.docTypeDetected">Tipo de documento detectado</div>
+              <div class="doc-val" id="c-type">—</div>
+            </div>
+          </div>
+          <span class="mode-badge" id="c-mode-badge" data-i18n="contracts.modeSingle">Análisis individual</span>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secSummary">Resumen ejecutivo</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <p class="summary-body" id="c-summary-body">—</p>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secClauses">Cláusulas clave</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="c-clauses-body"></div>
+        </div>
+
+        <div class="sec-div" id="c-comparison-divider" style="display:none">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secComparison">Comparación A vs B</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card" id="c-comparison-card" style="display:none">
+          <div class="conf-row" style="margin-bottom:18px">
+            <span class="conf-lbl" data-i18n="contracts.alignment">Alineación</span>
+            <div class="conf-bar">
+              <div class="conf-fill" id="c-align-fill" style="width:0%"></div>
+            </div>
+            <span class="conf-val" id="c-align-val">0%</span>
+          </div>
+          <div id="c-comparison-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secCompliance">Riesgos de compliance</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="c-compliance-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secRegulatory">Alertas regulatorias</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="c-regulatory-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secDd">Due Diligence Score</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="c-dd-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="contracts.secRecs">Recomendaciones</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="c-recs-body"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ PANEL: FRAUDE & RIESGO ============ -->
+    <section class="tab-panel" id="panel-fraud" style="display: none;">
+      <div class="hero">
+        <h1 data-i18n-html="fraud.heroTitle">Detecta <em>fraude</em> y anticipa<br>riesgos legales y reputacionales</h1>
+        <p data-i18n="fraud.heroText">Sube un expediente, informe de incidencia o registro de transacciones: identifica señales de fraude,
+          anomalías y riesgos, con un mapa de riesgo accionable.</p>
+        <div class="caps">
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--pii-c)"></span><span data-i18n="fraud.capScore">Score de fraude</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--pii-h)"></span><span data-i18n="fraud.capAnomalies">Anomalías</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--np)"></span><span data-i18n="fraud.capRegister">Registro de riesgos</span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--iptc)"></span><span data-i18n="fraud.capMap">Mapa de riesgo</span></div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="drop-zone" id="drop-zone-r">
+          <div class="drop-icon">
+            <svg viewBox="0 0 44 44" fill="none">
+              <rect x="8" y="4" width="20" height="28" rx="2.5" stroke="#18160f" stroke-width="1.6"></rect>
+              <path d="M24 4l8 8" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+              <rect x="24" y="4" width="8" height="8" rx="1.5" stroke="#18160f" stroke-width="1.6"></rect>
+              <circle cx="33" cy="33" r="7" stroke="#18160f" stroke-width="1.6"></circle>
+              <path d="M33 30v6M30 33h6" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <p class="drop-title" data-i18n="fraud.dropTitle">Arrastra un expediente, informe o registro</p>
+          <p class="drop-hint" data-i18n="common.dropHint">o haz clic para seleccionar</p>
+          <div class="fmts">
+            <span class="fmt">PDF</span><span class="fmt">DOCX</span><span class="fmt">TXT</span><span class="fmt">CSV</span>
+          </div>
+          <input type="file" id="file-input-r" accept=".pdf,.docx,.doc,.txt,.csv">
+        </div>
+
+        <div class="file-chip" id="file-chip-r">
+          <span class="file-ext" id="fr-ext">PDF</span>
+          <div class="file-info">
+            <div class="file-nm" id="fr-name">—</div>
+            <div class="file-sz" id="fr-sz">—</div>
+          </div>
+          <button class="btn-clear" id="btn-clear-r">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="action-row">
+          <button class="btn-run" id="btn-run-r" disabled="">
+            <div class="spin"></div><span class="lbl" data-i18n="fraud.run">Analizar caso</span>
+          </button>
+          <span class="status-txt" id="status-txt-r" data-i18n="common.processing">Procesando con Claude...</span>
+        </div>
+        <div class="err" id="err-r"></div>
+      </div>
+
+      <div class="results" id="results-r">
+
+        <div class="doc-banner">
+          <div class="doc-banner-l">
+            <div class="doc-icon" id="r-icon">📄</div>
+            <div>
+              <div class="doc-lbl" data-i18n="fraud.caseTypeDetected">Tipo de caso detectado</div>
+              <div class="doc-val" id="r-type">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="fraud.secSummary">Resumen</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <p class="summary-body" id="r-summary-body">—</p>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="fraud.secScore">Score de riesgo de fraude</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="r-score-banner"></div>
+          <div id="r-indicators-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="fraud.secAnomalies">Anomalías detectadas</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="r-anomalies-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="fraud.secRegister">Registro de riesgos</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="r-register-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="fraud.secMap">Mapa de riesgo</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="r-matrix-body"></div>
+        </div>
+
+        <div class="sec-div">
+          <div class="sec-line"></div><span class="sec-lbl" data-i18n="fraud.secActions">Acciones recomendadas</span>
+          <div class="sec-line"></div>
+        </div>
+        <div class="card">
+          <div id="r-actions-body"></div>
+        </div>
+
+      </div>
+    </section>
+    <section class="tab-panel" id="panel-tabular" style="display: none;">
+      <div class="hero">
+        <h1 data-i18n-html="tabular.heroTitle"></h1>
+        <p data-i18n="tabular.heroText"></p>
+        <div class="caps">
+          <div class="cap-pill"><span class="cap-dot" style="background:#4db87a"></span><span data-i18n="tabular.capMulti"></span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--iptc)"></span><span data-i18n="tabular.capQuote"></span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--pii-c)"></span><span data-i18n="tabular.capCross"></span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--fibo)"></span><span data-i18n="tabular.capCsv"></span></div>
+        </div>
+      </div>
+      <div class="input-area">
+        <span class="tr-lbl" data-i18n="tabular.template"></span>
+        <div class="tr-tpls" id="tr-templates"></div>
+        <span class="tr-lbl" data-i18n="tabular.fields"></span>
+        <div class="tr-chips" id="tr-fields"></div>
+        <div class="tr-add"><input id="tr-new" maxlength="200" data-i18n-placeholder="tabular.addField" data-i18n-aria="tabular.addField"><button type="button" class="tr-btn" id="tr-add" data-i18n="tabular.add"></button></div>
+        <div class="drop-zone" id="drop-zone-t">
+          <div class="drop-icon">
+          <svg viewBox="0 0 44 44" fill="none">
+            <rect x="8" y="4" width="20" height="28" rx="2.5" stroke="#18160f" stroke-width="1.6"></rect>
+            <path d="M24 4l8 8" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+            <rect x="24" y="4" width="8" height="8" rx="1.5" stroke="#18160f" stroke-width="1.6"></rect>
+            <circle cx="33" cy="33" r="7" stroke="#18160f" stroke-width="1.6"></circle>
+            <path d="M33 30v6M30 33h6" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+        </div>
+          <p class="drop-title" data-i18n="tabular.dropTitle"></p>
+          <p class="drop-hint" data-i18n="common.dropHint"></p>
+          <div class="fmts"><span class="fmt">PDF</span><span class="fmt">DOCX</span><span class="fmt">TXT</span></div>
+          <input type="file" id="file-input-t" accept=".pdf,.docx,.txt" multiple style="display:none">
+        </div>
+        <div class="tr-chips" id="tr-files"></div>
+        <div class="action-row">
+          <button class="btn-run" id="btn-run-t" disabled><div class="spin"></div><span class="lbl" data-i18n="tabular.run"></span></button>
+          <button type="button" class="tr-btn" id="tr-clear" data-i18n="tabular.clear"></button>
+          <button type="button" class="tr-btn" id="tr-load" data-i18n="tabular.load"></button>
+          <input type="file" id="tr-load-input" accept=".csv,.json" style="display:none">
+          <span class="status-txt" id="status-txt-t"></span>
+        </div>
+        <div class="err" id="err-t"></div>
+      </div>
+      <div class="results" id="results-t">
+        <div class="tr-saved" id="tr-saved"></div>
+        <div class="tr-legend" id="tr-legend"></div>
+        <div class="sec-div"><div class="sec-line"></div><span class="sec-lbl" data-i18n="tabular.sec"></span><div class="sec-line"></div></div>
+        <div class="card" id="tr-alerts"></div>
+        <div class="sec-div"><div class="sec-line"></div><span class="sec-lbl" data-i18n="tabular.table"></span><div class="sec-line"></div></div>
+        <div class="tr-scroll"><table id="tr-table"></table></div>
+        <div class="tr-foot"><span data-i18n="tabular.disclaimer"></span><span id="tr-usage"></span><span><button type="button" class="tr-btn" id="tr-save" data-i18n="tabular.save"></button> <button type="button" class="tr-btn" id="tr-export" data-i18n="tabular.export"></button></span></div>
+      </div>
+      <dialog id="tr-dlg"><div id="tr-dlg-body"></div><button type="button" class="tr-btn" id="tr-close" data-i18n="tabular.close"></button></dialog>
+    </section>
+  </main>
+
+  <footer>
+    <span class="foot-l" data-i18n="footer.company">Logicalis España</span>
+    <div class="foot-r">
+      <span class="fbadge i">IPTC 2024</span>
+      <span class="fbadge f">FIBO · ESCO · LEGAL</span>
+      <span class="fbadge p">GDPR PII</span>
+      <span class="fbadge">Compliance · DD</span>
+      <span class="fbadge" data-i18n="footer.fraudBadge">Fraude · Riesgo</span>
+      <span class="fbadge">Claude Haiku 4.5</span>
+    </div>
+  </footer>
+
+  <script src="./AI Use Case Suite — Logicalis_files/mammoth.browser.min.js"></script>
+  <script>
+    // Load PDF.js dynamically
+    let pdfjsLib = null;
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    s.onload = () => { pdfjsLib = window.pdfjsLib; pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; };
+    document.head.appendChild(s);
+
+    let currentFile = null;
+    const $ = id => document.getElementById(id);
+
+    $('api-key').addEventListener('input', () => {
+      $('api-dot').className = 'api-dot' + ($('api-key').value.trim().startsWith('sk-ant') ? ' ok' : '');
+      sync(); syncC(); syncR();
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+        btn.classList.add('active');
+        $('panel-' + btn.dataset.tab).style.display = 'block';
+        $('logo-sub').textContent = btn.dataset.sub;
+      });
+    });
+
+    // Re-render dynamic labels on language change. Free text from Claude keeps the language it was generated in.
+    let lastDoc = null, lastContracts = null, lastFraud = null;
+    i18next.on('languageChanged', () => {
+      $('logo-sub').textContent = document.querySelector('.tab-btn.active').dataset.sub;
+      if (lastDoc && $('results').classList.contains('show')) render(lastDoc, true);
+      if (lastContracts && $('results-c').classList.contains('show')) renderContracts(lastContracts, true);
+      if (lastFraud && $('results-r').classList.contains('show')) renderFraud(lastFraud, true);
+    });
+
+    $('drop-zone').addEventListener('click', () => $('file-input').click());
+    $('drop-zone').addEventListener('dragover', e => { e.preventDefault(); $('drop-zone').classList.add('over'); });
+    $('drop-zone').addEventListener('dragleave', () => $('drop-zone').classList.remove('over'));
+    $('drop-zone').addEventListener('drop', e => { e.preventDefault(); $('drop-zone').classList.remove('over'); if (e.dataTransfer.files[0]) load(e.dataTransfer.files[0]); });
+    $('file-input').addEventListener('change', () => { if ($('file-input').files[0]) load($('file-input').files[0]); });
+    $('btn-clear').addEventListener('click', () => { currentFile = null; $('file-input').value = ''; $('file-chip').classList.remove('show'); $('results').classList.remove('show'); sync(); });
+
+    function load(f) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      if (!['pdf', 'docx', 'doc', 'pptx', 'ppt', 'txt'].includes(ext)) { showErr(t('common.unsupported')); return; }
+      currentFile = f;
+      $('f-ext').textContent = ext.toUpperCase();
+      $('f-name').textContent = f.name;
+      $('f-sz').textContent = fmtB(f.size);
+      $('file-chip').classList.add('show');
+      $('results').classList.remove('show');
+      hideErr(); sync();
+    }
+
+    function sync() { $('btn-run').disabled = !(currentFile && $('api-key').value.trim().startsWith('sk-ant')); }
+    function fmtB(b) { return b < 1024 ? b + ' B' : b < 1048576 ? (b / 1024).toFixed(1) + ' KB' : (b / 1048576).toFixed(1) + ' MB'; }
+    function showErr(m) { $('err').textContent = m; $('err').classList.add('show'); }
+    function hideErr() { $('err').classList.remove('show'); }
+
+    async function extractText(f) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      if (ext === 'txt' || ext === 'csv') return f.text();
+      if (ext === 'pdf') {
+        if (!pdfjsLib) throw new Error(t('common.pdfLoading'));
+        const ab = await f.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: ab }).promise;
+        let t = '';
+        for (let i = 1; i <= Math.min(pdf.numPages, 25); i++) {
+          const p = await pdf.getPage(i);
+          const c = await p.getTextContent();
+          t += c.items.map(x => x.str).join(' ') + '\n';
+        }
+        return t.trim();
+      }
+      if (['docx', 'doc'].includes(ext)) {
+        const ab = await f.arrayBuffer();
+        const r = await mammoth.extractRawText({ arrayBuffer: ab });
+        return r.value.trim();
+      }
+      return null;
+    }
+
+    function b64(f) {
+      return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result.split(',')[1]); r.onerror = rej; r.readAsDataURL(f); });
+    }
+
+    $('btn-run').addEventListener('click', async () => {
+      const key = $('api-key').value.trim();
+      $('btn-run').classList.add('loading'); $('btn-run').disabled = true;
+      $('status-txt').classList.add('show'); hideErr(); $('results').classList.remove('show');
+
+      try {
+        const ext = currentFile.name.split('.').pop().toLowerCase();
+        let text = null;
+        try { text = await extractText(currentFile); } catch (e) { }
+
+        const P = getPrompts();
+        const PROMPT = P.doc.user;
+
+        let messages;
+        if (text && text.length > 80) {
+          const trunc = text.length > 15000 ? text.substring(0, 15000) + '\n...' + P.wrap.truncated : text;
+          messages = [{ role: 'user', content: PROMPT + '\n\n' + P.wrap.document + ':\n<doc>\n' + trunc + '\n</doc>' }];
+        } else if (ext === 'pdf') {
+          const b = await b64(currentFile);
+          messages = [{
+            role: 'user', content: [
+              { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: b } },
+              { type: 'text', text: PROMPT }
+            ]
+          }];
+        } else {
+          throw new Error(t('common.extractFailed'));
+        }
+
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 6000,
+            system: P.doc.system,
+            messages
+          })
+        });
+
+        if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error?.message || `HTTP ${res.status}`); }
+        const data = await res.json();
+        const raw = data.content.map(b => b.text || '').join('');
+        render(parseClaudeJSON(raw));
+
+      } catch (e) {
+        console.error(e); showErr(t('common.error', { message: e.message }));
+      } finally {
+        $('btn-run').classList.remove('loading'); $('btn-run').disabled = false; sync();
+        $('status-txt').classList.remove('show');
+      }
+    });
+
+    function render(d, silent) {
+      lastDoc = d;
+      // Banner
+      $('d-icon').textContent = d.document_icon || '📄';
+      $('d-type').textContent = d.document_type || '—';
+      $('d-tags').innerHTML = (d.document_tags || []).slice(0, 4).map(t => `<span class="doc-tag">${t}</span>`).join('');
+
+      // Metadata
+      const m = d.metadata || {};
+      const fields = [[t('doc.field.title'), m.title], [t('doc.field.author'), m.author], [t('doc.field.date'), m.date], [t('doc.field.language'), m.language], [t('doc.field.organization'), m.organization], [t('doc.field.pages'), m.pages_estimated]]
+        .filter(([, v]) => v && v !== 'null' && v !== null && v !== 'No detectado');
+      $('meta-body').innerHTML = fields.map(([k, v]) => `<div class="meta-row"><span class="mk">${k}</span><span class="mv">${v}</span></div>`).join('');
+
+      // Summary
+      $('summary-body').textContent = d.summary || '—';
+
+      // NER
+      const ner = d.ner || {};
+      const groups = [
+        { items: ner.persons || [], cls: 'p', icon: '👤', label: t('doc.ner.persons') },
+        { items: ner.organizations || [], cls: 'o', icon: '🏢', label: t('doc.ner.organizations') },
+        { items: ner.locations || [], cls: 'l', icon: '📍', label: t('doc.ner.locations') },
+        { items: ner.other || [], cls: 'x', icon: '🔖', label: t('doc.ner.other') },
+      ].filter(g => g.items.length);
+
+      $('ner-body').innerHTML = groups.length ? groups.map(g => `
+    <div class="ner-group">
+      <div class="ner-gh">
+        <span class="ner-type" style="color:var(--n${g.cls})">${g.icon} ${g.label}</span>
+        <span class="ner-cnt">${g.items.length}</span>
+      </div>
+      <div class="ner-chips">
+        ${g.items.map(it => {
+        const sub = it.role || it.type || '';
+        const n = it.mentions > 1 ? `<span class="nc-n">×${it.mentions}</span>` : '';
+        return `<div class="ner-chip ${g.cls}"><span class="nc-dot"></span>${it.name}${n}${sub ? `<span class="nc-sub"> · ${sub}</span>` : ''}</div>`;
+      }).join('')}
+      </div>
+    </div>`).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('doc.noEntities')}</span>`;
+
+      // IPTC
+      $('iptc-tags').innerHTML = (d.iptc_topics || []).length
+        ? d.iptc_topics.map(t => `<div class="txo-tag iptc"><span class="t-code">${t.code}</span><span class="t-label">${t.label_local || t.label_es || t.label}</span><span class="t-path">${t.path || ''}</span><span class="t-conf">${t.confidence ? t.confidence + '%' : ''}</span></div>`).join('')
+        : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('common.notApplicable')}</span>`;
+
+      // Secondary taxonomy
+      const sec = d.secondary_taxonomy || {};
+      $('sec-taxo-title').textContent = (sec.type && sec.type !== 'NONE' && sec.label) ? sec.label : t('doc.secondaryTaxonomy');
+      $('sec-tags').innerHTML = (sec.type && sec.type !== 'NONE' && sec.items && sec.items.length)
+        ? sec.items.map(t => `<div class="txo-tag sec"><span class="t-code">${t.domain || ''}</span><span class="t-label">${t.label_local || t.label_es || t.label}</span><span class="t-path">${t.code || ''}</span><span class="t-conf">${t.confidence ? t.confidence + '%' : ''}</span></div>`).join('')
+        : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('doc.secondaryNotApplicable')}</span>`;
+
+      // PII
+      const pii = d.pii || {};
+      const risk = (pii.overall_risk || 'NONE').toLowerCase();
+      const riskMap = { critical: { ico: '🔴', txt: t('risk.critical') }, high: { ico: '🟠', txt: t('risk.high') }, medium: { ico: '🟡', txt: t('risk.medium') }, low: { ico: '🟢', txt: t('risk.low') }, none: { ico: '⚪', txt: t('risk.none') } };
+      const rm = riskMap[risk] || riskMap.none;
+      let piiHTML = '';
+      if (risk !== 'none') {
+        piiHTML += `<div class="pii-risk ${risk}"><span class="pii-risk-ico">${rm.ico}</span><div><div class="pii-risk-lvl">${rm.txt}</div><div class="pii-risk-desc">${pii.risk_description || ''}</div></div></div>`;
+      }
+      const pitems = pii.items || [];
+      piiHTML += pitems.length
+        ? `<div class="pii-items">${pitems.map(it => {
+          const sev = (it.severity || 'low').toLowerCase();
+          return `<div class="pii-item ${sev}">
+          <div class="pii-il">
+            <div class="pii-cat">${tEnum('pii', it.category) || '—'}</div>
+            <div class="pii-desc">${it.description || ''}</div>
+            ${it.example ? `<div class="pii-ex">${it.example}</div>` : ''}
+            ${it.gdpr_basis ? `<div class="pii-ex">${t('doc.gdpr')}: ${it.gdpr_basis}</div>` : ''}
+          </div>
+          <span class="pii-sev">${tEnum('sev', it.severity)}</span>
+        </div>`;
+        }).join('')}</div>`
+        : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('doc.noPii')}</span>`;
+      $('pii-body').innerHTML = piiHTML;
+
+      // Confidence
+      const cs = d.confidence_scores || {};
+      const confItems = [
+        { label: t('doc.conf.metadata'), k: 'metadata' },
+        { label: t('doc.conf.ner'), k: 'ner' },
+        { label: t('doc.conf.iptc'), k: 'iptc' },
+        { label: (sec.label || t('doc.conf.secondary')), k: 'secondary_taxonomy' },
+        { label: t('doc.conf.pii'), k: 'pii' },
+      ];
+      $('conf-body').innerHTML = confItems.map(c => `
+    <div class="conf-row">
+      <span class="conf-lbl">${c.label}</span>
+      <div class="conf-bar"><div class="conf-fill" style="width:0%" data-t="${cs[c.k] || 0}"></div></div>
+      <span class="conf-val">${cs[c.k] || 0}%</span>
+    </div>`).join('');
+
+      $('results').classList.add('show');
+      if (!silent) $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        $('results').querySelectorAll('.conf-fill[data-t]').forEach(el => { el.style.width = el.dataset.t + '%'; });
+      }));
+    }
+
+    // ============================================================
+    // SHARED HELPERS
+    // ============================================================
+    function parseClaudeJSON(raw) {
+      const clean = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+      try {
+        return JSON.parse(clean);
+      } catch (e) {
+        throw new Error(t('common.invalidJson', { message: e.message }));
+      }
+    }
+
+    function sevClass(level) {
+      const l = (level || '').toString().toUpperCase();
+      if (l.includes('CRIT')) return 'critical';
+      if (['HIGH', 'IN_FORCE'].some(k => l.includes(k))) return 'high';
+      if (['MEDIUM', 'UPCOMING'].some(k => l.includes(k))) return 'medium';
+      if (['LOW', 'PENDING', 'MINIMAL', 'NONE'].some(k => l.includes(k))) return 'low';
+      return 'medium';
+    }
+
+    async function buildDocPart(file, label, P) {
+      const ext = file.name.split('.').pop().toLowerCase();
+      let text = null;
+      try { text = await extractText(file); } catch (e) { }
+      if (text && text.length > 80) {
+        const trunc = text.length > 12000 ? text.substring(0, 12000) + '\n...' + P.wrap.truncated : text;
+        return { kind: 'text', text: `\n\n${P.wrap.document} ${label} (${file.name}):\n<doc_${label.toLowerCase()}>\n${trunc}\n</doc_${label.toLowerCase()}>` };
+      }
+      if (ext === 'pdf') {
+        const b = await b64(file);
+        return { kind: 'document', source: { type: 'base64', media_type: 'application/pdf', data: b } };
+      }
+      throw new Error(t('common.extractFailedDoc', { label }));
+    }
+
+    // ============================================================
+    // CONTRATOS & COMPLIANCE
+    // ============================================================
+    let currentFileCA = null, currentFileCB = null;
+
+    $('drop-zone-ca').addEventListener('click', () => $('file-input-ca').click());
+    $('drop-zone-ca').addEventListener('dragover', e => { e.preventDefault(); $('drop-zone-ca').classList.add('over'); });
+    $('drop-zone-ca').addEventListener('dragleave', () => $('drop-zone-ca').classList.remove('over'));
+    $('drop-zone-ca').addEventListener('drop', e => { e.preventDefault(); $('drop-zone-ca').classList.remove('over'); if (e.dataTransfer.files[0]) loadCA(e.dataTransfer.files[0]); });
+    $('file-input-ca').addEventListener('change', () => { if ($('file-input-ca').files[0]) loadCA($('file-input-ca').files[0]); });
+    $('btn-clear-ca').addEventListener('click', () => { currentFileCA = null; $('file-input-ca').value = ''; $('file-chip-ca').classList.remove('show'); $('results-c').classList.remove('show'); syncC(); });
+
+    function loadCA(f) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      if (!['pdf', 'docx', 'doc', 'txt'].includes(ext)) { showErrC(t('contracts.unsupportedA')); return; }
+      currentFileCA = f;
+      $('fca-ext').textContent = ext.toUpperCase();
+      $('fca-name').textContent = f.name;
+      $('fca-sz').textContent = fmtB(f.size);
+      $('file-chip-ca').classList.add('show');
+      $('results-c').classList.remove('show');
+      hideErrC(); syncC();
+    }
+
+    $('drop-zone-cb').addEventListener('click', () => $('file-input-cb').click());
+    $('drop-zone-cb').addEventListener('dragover', e => { e.preventDefault(); $('drop-zone-cb').classList.add('over'); });
+    $('drop-zone-cb').addEventListener('dragleave', () => $('drop-zone-cb').classList.remove('over'));
+    $('drop-zone-cb').addEventListener('drop', e => { e.preventDefault(); $('drop-zone-cb').classList.remove('over'); if (e.dataTransfer.files[0]) loadCB(e.dataTransfer.files[0]); });
+    $('file-input-cb').addEventListener('change', () => { if ($('file-input-cb').files[0]) loadCB($('file-input-cb').files[0]); });
+    $('btn-clear-cb').addEventListener('click', () => { currentFileCB = null; $('file-input-cb').value = ''; $('file-chip-cb').classList.remove('show'); $('results-c').classList.remove('show'); syncC(); });
+
+    function loadCB(f) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      if (!['pdf', 'docx', 'doc', 'txt'].includes(ext)) { showErrC(t('contracts.unsupportedB')); return; }
+      currentFileCB = f;
+      $('fcb-ext').textContent = ext.toUpperCase();
+      $('fcb-name').textContent = f.name;
+      $('fcb-sz').textContent = fmtB(f.size);
+      $('file-chip-cb').classList.add('show');
+      $('results-c').classList.remove('show');
+      hideErrC(); syncC();
+    }
+
+    function syncC() { $('btn-run-c').disabled = !(currentFileCA && $('api-key').value.trim().startsWith('sk-ant')); }
+    function showErrC(m) { $('err-c').textContent = m; $('err-c').classList.add('show'); }
+    function hideErrC() { $('err-c').classList.remove('show'); }
+
+    $('btn-run-c').addEventListener('click', async () => {
+      const key = $('api-key').value.trim();
+      $('btn-run-c').classList.add('loading'); $('btn-run-c').disabled = true;
+      $('status-txt-c').classList.add('show'); hideErrC(); $('results-c').classList.remove('show');
+
+      try {
+        const P = getPrompts();
+        const partA = await buildDocPart(currentFileCA, 'A', P);
+        let partB = null;
+        if (currentFileCB) partB = await buildDocPart(currentFileCB, 'B', P);
+
+        const PROMPT_C = P.contracts.user;
+
+        let content = [];
+        if (partA.kind === 'document') content.push({ type: 'document', source: partA.source });
+        if (partB && partB.kind === 'document') content.push({ type: 'document', source: partB.source });
+        let textBlock = PROMPT_C;
+        if (partA.kind === 'text') textBlock += partA.text;
+        if (partB && partB.kind === 'text') textBlock += partB.text;
+        content.push({ type: 'text', text: textBlock });
+
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 8000,
+            system: P.contracts.system,
+            messages: [{ role: 'user', content }]
+          })
+        });
+
+        if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error?.message || `HTTP ${res.status}`); }
+        const data = await res.json();
+        const raw = data.content.map(b => b.text || '').join('');
+        renderContracts(parseClaudeJSON(raw));
+
+      } catch (e) {
+        console.error(e); showErrC(t('common.error', { message: e.message }));
+      } finally {
+        $('btn-run-c').classList.remove('loading'); $('btn-run-c').disabled = false; syncC();
+        $('status-txt-c').classList.remove('show');
+      }
+    });
+
+    function renderContracts(d, silent) {
+      lastContracts = d;
+      $('c-icon').textContent = d.document_icon || '📄';
+      $('c-type').textContent = d.document_type || '—';
+      const isComparison = d.mode === 'comparison';
+      $('c-mode-badge').textContent = isComparison ? t('contracts.modeComparison') : t('contracts.modeSingle');
+
+      $('c-summary-body').textContent = d.summary || '—';
+
+      const clauses = d.clauses || [];
+      $('c-clauses-body').innerHTML = clauses.length ? clauses.map(c => {
+        const sev = (c.risk_level || 'low').toLowerCase();
+        return `<div class="pii-item ${sev}">
+          <div class="pii-il">
+            <div class="pii-cat">${tEnum('clause', c.category) || '—'}${c.source ? ` · ${t('contracts.docShort')} ${c.source}` : ''}</div>
+            <div class="pii-desc"><strong>${c.title || ''}</strong>${c.description ? ' — ' + c.description : ''}</div>
+          </div>
+          <span class="pii-sev">${tEnum('sev', c.risk_level)}</span>
+        </div>`;
+      }).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('contracts.noClauses')}</span>`;
+
+      if (isComparison && d.comparison) {
+        $('c-comparison-divider').style.display = 'flex';
+        $('c-comparison-card').style.display = 'block';
+        const comp = d.comparison;
+        $('c-align-val').textContent = (comp.alignment_score || 0) + '%';
+        const fill = $('c-align-fill');
+        fill.dataset.t = comp.alignment_score || 0;
+        requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = (comp.alignment_score || 0) + '%'; }));
+        const discs = comp.discrepancies || [];
+        $('c-comparison-body').innerHTML = discs.length ? discs.map(x => {
+          const sev = sevClass(x.severity);
+          return `<div class="disc-card ${sev}">
+            <div class="disc-hd"><span class="disc-cat">${tEnum('clause', x.clause_category) || '—'}</span><span class="pii-sev">${tEnum('sev', x.severity)}</span></div>
+            <div class="disc-cols">
+              <div><div class="disc-col-lbl">${t('contracts.documentA')}</div><div class="disc-col-txt">${x.doc_a_summary || '—'}</div></div>
+              <div><div class="disc-col-lbl">${t('contracts.documentB')}</div><div class="disc-col-txt">${x.doc_b_summary || '—'}</div></div>
+            </div>
+            ${x.recommendation ? `<div class="disc-rec">→ ${x.recommendation}</div>` : ''}
+          </div>`;
+        }).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('contracts.noDiscrepancies')}</span>`;
+      } else {
+        $('c-comparison-divider').style.display = 'none';
+        $('c-comparison-card').style.display = 'none';
+      }
+
+      const cr = d.compliance_risks || [];
+      $('c-compliance-body').innerHTML = cr.length ? cr.map(it => {
+        const sev = (it.severity || 'low').toLowerCase();
+        return `<div class="pii-item ${sev}">
+          <div class="pii-il">
+            <div class="pii-cat">${tEnum('compliance', it.category) || '—'}</div>
+            <div class="pii-desc">${it.description || ''}</div>
+            ${it.regulation_reference ? `<div class="pii-ex">${t('contracts.regulation')}: ${it.regulation_reference}</div>` : ''}
+          </div>
+          <span class="pii-sev">${tEnum('sev', it.severity)}</span>
+        </div>`;
+      }).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('contracts.noCompliance')}</span>`;
+
+      const reg = d.regulatory_alerts || [];
+      $('c-regulatory-body').innerHTML = reg.length ? reg.map(it => {
+        const sev = sevClass(it.status);
+        return `<div class="pii-item ${sev}">
+          <div class="pii-il">
+            <div class="pii-cat">${it.regulation || '—'} · ${tEnum('jurisdiction', it.jurisdiction)}</div>
+            <div class="pii-desc">${it.relevance || ''}</div>
+            ${it.action_required ? `<div class="pii-ex">${t('contracts.action')}: ${it.action_required}</div>` : ''}
+          </div>
+          <span class="pii-sev">${tEnum('status', it.status)}</span>
+        </div>`;
+      }).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('contracts.noRegulatory')}</span>`;
+
+      const dd = d.due_diligence_score || {};
+      const ddItems = ['overall', 'legal', 'financial', 'operational', 'reputational'].map(k => [t('contracts.dd.' + k), k]);
+      $('c-dd-body').innerHTML = ddItems.map(([label, key]) => `
+        <div class="conf-row">
+          <span class="conf-lbl">${label}</span>
+          <div class="conf-bar"><div class="conf-fill" style="width:0%" data-t="${dd[key] || 0}"></div></div>
+          <span class="conf-val">${dd[key] || 0}%</span>
+        </div>`).join('');
+
+      const recs = d.recommendations || [];
+      $('c-recs-body').innerHTML = recs.length ? recs.map(r => `<div class="rec-item">→ ${r}</div>`).join('') : '<span style="font-size:0.8rem;color:var(--text-muted)">—</span>';
+
+      $('results-c').classList.add('show');
+      if (!silent) $('results-c').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        $('results-c').querySelectorAll('.conf-fill[data-t]').forEach(el => { el.style.width = el.dataset.t + '%'; });
+      }));
+    }
+
+    // ============================================================
+    // FRAUDE & RIESGO
+    // ============================================================
+    let currentFileR = null;
+
+    $('drop-zone-r').addEventListener('click', () => $('file-input-r').click());
+    $('drop-zone-r').addEventListener('dragover', e => { e.preventDefault(); $('drop-zone-r').classList.add('over'); });
+    $('drop-zone-r').addEventListener('dragleave', () => $('drop-zone-r').classList.remove('over'));
+    $('drop-zone-r').addEventListener('drop', e => { e.preventDefault(); $('drop-zone-r').classList.remove('over'); if (e.dataTransfer.files[0]) loadR(e.dataTransfer.files[0]); });
+    $('file-input-r').addEventListener('change', () => { if ($('file-input-r').files[0]) loadR($('file-input-r').files[0]); });
+    $('btn-clear-r').addEventListener('click', () => { currentFileR = null; $('file-input-r').value = ''; $('file-chip-r').classList.remove('show'); $('results-r').classList.remove('show'); syncR(); });
+
+    function loadR(f) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      if (!['pdf', 'docx', 'doc', 'txt', 'csv'].includes(ext)) { showErrR(t('common.unsupported')); return; }
+      currentFileR = f;
+      $('fr-ext').textContent = ext.toUpperCase();
+      $('fr-name').textContent = f.name;
+      $('fr-sz').textContent = fmtB(f.size);
+      $('file-chip-r').classList.add('show');
+      $('results-r').classList.remove('show');
+      hideErrR(); syncR();
+    }
+
+    function syncR() { $('btn-run-r').disabled = !(currentFileR && $('api-key').value.trim().startsWith('sk-ant')); }
+    function showErrR(m) { $('err-r').textContent = m; $('err-r').classList.add('show'); }
+    function hideErrR() { $('err-r').classList.remove('show'); }
+
+    $('btn-run-r').addEventListener('click', async () => {
+      const key = $('api-key').value.trim();
+      $('btn-run-r').classList.add('loading'); $('btn-run-r').disabled = true;
+      $('status-txt-r').classList.add('show'); hideErrR(); $('results-r').classList.remove('show');
+
+      try {
+        const P = getPrompts();
+        const part = await buildDocPart(currentFileR, P.wrap.caseLabel, P);
+
+        const PROMPT_R = P.fraud.user;
+
+        let content = [];
+        if (part.kind === 'document') content.push({ type: 'document', source: part.source });
+        let textBlock = PROMPT_R;
+        if (part.kind === 'text') textBlock += part.text;
+        content.push({ type: 'text', text: textBlock });
+
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 6000,
+            system: P.fraud.system,
+            messages: [{ role: 'user', content }]
+          })
+        });
+
+        if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error?.message || `HTTP ${res.status}`); }
+        const data = await res.json();
+        const raw = data.content.map(b => b.text || '').join('');
+        renderFraud(parseClaudeJSON(raw));
+
+      } catch (e) {
+        console.error(e); showErrR(t('common.error', { message: e.message }));
+      } finally {
+        $('btn-run-r').classList.remove('loading'); $('btn-run-r').disabled = false; syncR();
+        $('status-txt-r').classList.remove('show');
+      }
+    });
+
+    function renderFraud(d, silent) {
+      lastFraud = d;
+      $('r-icon').textContent = d.case_icon || '📄';
+      $('r-type').textContent = d.case_type || '—';
+      $('r-summary-body').textContent = d.summary || '—';
+
+      const fr = d.fraud_risk || {};
+      const riskCls = sevClass(fr.risk_level || 'MINIMAL');
+      const riskMap = { critical: ['🔴', t('risk.critical')], high: ['🟠', t('risk.high')], medium: ['🟡', t('risk.medium')], low: ['🟢', t('risk.low')] };
+      const rm = riskMap[riskCls] || riskMap.low;
+      $('r-score-banner').innerHTML = `<div class="pii-risk ${riskCls}">
+        <span class="pii-risk-ico">${rm[0]}</span>
+        <div><div class="pii-risk-lvl">${rm[1]}</div><div class="pii-risk-desc">${fr.risk_description || ''}</div></div>
+        <div class="score-big"><div class="sb-num">${fr.overall_score != null ? fr.overall_score : 0}</div><div class="sb-max">/ 100</div></div>
+      </div>`;
+
+      const inds = fr.indicators || [];
+      $('r-indicators-body').innerHTML = inds.length ? `<div style="margin-top:14px">${inds.map(it => {
+        const sev = (it.severity || 'low').toLowerCase();
+        return `<div class="pii-item ${sev}">
+          <div class="pii-il">
+            <div class="pii-cat">${it.signal || '—'}</div>
+            <div class="pii-desc">${it.description || ''}</div>
+            ${it.evidence ? `<div class="pii-ex">${it.evidence}</div>` : ''}
+          </div>
+          <span class="pii-sev">${tEnum('sev', it.severity)}</span>
+        </div>`;
+      }).join('')}</div>` : '';
+
+      const anoms = d.anomalies || [];
+      $('r-anomalies-body').innerHTML = anoms.length ? anoms.map(a => `
+        <div class="anom-card">
+          <div class="anom-type">⚠ ${a.type || t('fraud.anomaly')}</div>
+          <div class="anom-desc">${a.description || ''}</div>
+          ${a.deviation ? `<div class="anom-dev">${a.deviation}</div>` : ''}
+        </div>`).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('fraud.noAnomalies')}</span>`;
+
+      const reg = d.risk_register || [];
+      $('r-register-body').innerHTML = reg.length ? reg.map(it => {
+        const sev = sevClass(it.impact);
+        return `<div class="pii-item ${sev}">
+          <div class="pii-il">
+            <div class="pii-cat">${tEnum('riskCat', it.category) || '—'}</div>
+            <div class="pii-desc"><strong>${it.title || ''}</strong>${it.description ? ' — ' + it.description : ''}</div>
+            <div class="pii-ex">${t('fraud.probability')}: ${tEnum('level', it.probability) || '—'} · ${t('fraud.impact')}: ${tEnum('level', it.impact) || '—'}</div>
+            ${it.mitigation ? `<div class="pii-ex">${t('fraud.mitigation')}: ${it.mitigation}</div>` : ''}
+          </div>
+        </div>`;
+      }).join('') : `<span style="font-size:0.8rem;color:var(--text-muted)">${t('fraud.noRisks')}</span>`;
+
+      const rmx = d.risk_matrix || {};
+      const rmItems = ['legal', 'financial', 'operational', 'reputational', 'regulatory'].map(k => [t('fraud.matrix.' + k), k]);
+      $('r-matrix-body').innerHTML = rmItems.map(([label, key]) => `
+        <div class="conf-row">
+          <span class="conf-lbl">${label}</span>
+          <div class="conf-bar"><div class="conf-fill" style="width:0%" data-t="${rmx[key] || 0}"></div></div>
+          <span class="conf-val">${rmx[key] || 0}%</span>
+        </div>`).join('');
+
+      const actions = d.recommended_actions || [];
+      $('r-actions-body').innerHTML = actions.length ? actions.map(a => `<div class="rec-item">→ ${a}</div>`).join('') : '<span style="font-size:0.8rem;color:var(--text-muted)">—</span>';
+
+      $('results-r').classList.add('show');
+      if (!silent) $('results-r').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        $('results-r').querySelectorAll('.conf-fill[data-t]').forEach(el => { el.style.width = el.dataset.t + '%'; });
+      }));
+    }
+  </script>
+  <script src="js/tabular-review.js?v=5"></script>
+  <script src="js/ui-afianza.js?v=5"></script>
+  <script src="js/doc-afianza.js?v=5"></script>
+  <script src="js/contracts-afianza.js?v=5"></script>
+  <script src="js/fraud-afianza.js?v=5"></script>
+
+
+</body></html>

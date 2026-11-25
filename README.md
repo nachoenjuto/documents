@@ -10,6 +10,8 @@ Demo web app with three AI use cases for document-heavy work, powered by the Cla
 
 The UI and the prompts are available in **Spanish, English and German**.
 
+`index_afianza.html` is a client variant with the same three tabs plus **Tabular Review** (Spanish only): it extracts the same fields from up to 20 documents, checks every quote against the source text, raises cross-document alerts and exports CSV. Templates and prompts live in `prompts/tabular.js`, UI strings in `locales/afianza.js` and logic in `js/tabular-review.js`. Model IDs and limits can be overridden by defining `window.TABULAR_CONFIG` before that script. It also restyles the results of the three original tabs (`js/*-afianza.js`, `prompts/suite-afianza.js`). **Guardar análisis** stores a full session as JSON (including the documents, so treat it as confidential) and **Cargar análisis guardado** restores a JSON session or an exported CSV (table only) without model or internet access; `js/i18next-fallback.js` covers i18next when its CDN is unreachable. Sample files: `Demo docs/clientes/afianza/`.
+
 ## Quick start
 
 It is a static site: no build step, no backend, no dependencies to install.
