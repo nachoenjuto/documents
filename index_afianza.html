@@ -2312,7 +2312,8 @@
       let text = null;
       try { text = await extractText(file); } catch (e) { }
       if (text && text.length > 80) {
-        const trunc = text.length > 12000 ? text.substring(0, 12000) + '\n...' + P.wrap.truncated : text;
+        const MAX = 60000; // contratos largos (Demo docs/…/contratos_large)
+        const trunc = text.length > MAX ? text.substring(0, MAX) + '\n...' + P.wrap.truncated : text;
         return { kind: 'text', text: `\n\n${P.wrap.document} ${label} (${file.name}):\n<doc_${label.toLowerCase()}>\n${trunc}\n</doc_${label.toLowerCase()}>` };
       }
       if (ext === 'pdf') {
@@ -2395,7 +2396,7 @@
           headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
           body: JSON.stringify({
             model: 'claude-haiku-4-5-20251001',
-            max_tokens: 8000,
+            max_tokens: 12000,
             system: P.contracts.system,
             messages: [{ role: 'user', content }]
           })
