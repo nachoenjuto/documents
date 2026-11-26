@@ -109,7 +109,7 @@
   function renderList() {
     list.innerHTML = st.items.map((it, i) => {
       const off = it.value == null;
-      const val = it.error ? t('tabular.failed', { message: it.error }) : off ? t('tabular.missing') : it.value;
+      const val = it.error ? t('tabular.failed', { message: it.error }) : off ? t('tabular.missing') : it.meets === false ? `${t('tabular.notMet')} · ${it.value}` : it.value;
       return `<button type="button" class="ctx-item r-${it.risk}" data-i="${i}" ${off ? 'disabled' : ''}><span class="ctx-top"><span class="tr-lbl">${esc(it.label)}</span>${!off && it.page != null ? `<span class="ctx-pg">${esc(t('tabular.ctxShort', { n: it.page }))}</span>` : ''}</span>` +
         `<span class="ctx-val">${it.risk !== 'NONE' && !off ? `<i class="dot ${it.risk}" title="${esc(t('tabular.sevName.' + it.risk))}"></i>` : ''}${esc(val)}${MARK[it.check] ? ` <i class="q-${it.check}" title="${esc(t('tabular.legendQuote.' + it.check))}">${MARK[it.check]}</i>` : ''}</span></button>`;
     }).join('');

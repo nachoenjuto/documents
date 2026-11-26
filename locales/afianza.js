@@ -1,9 +1,9 @@
-// Textos de Tabular Review. Solo castellano: en EN/DE i18next recurre a ES.
-Object.assign(window.I18N.es.tabs, { tabular: 'Tabular Review', tabularSub: 'Multidocumento · Citas · Alertas' });
+// Textos de la pestaña Due Diligence (Tabular Review). Solo castellano: en EN/DE i18next recurre a ES.
+Object.assign(window.I18N.es.tabs, { tabular: 'Due Diligence', tabularSub: 'Revisión masiva · Evidencia citada · Excepciones' });
 window.I18N.es.tabular = {
   heroTitle: 'Revisa <em>todos</em> los documentos<br>y quédate con las excepciones',
   heroText: 'Extrae los mismos campos de muchos documentos, con cita y página en cada celda, y cruza los resultados para señalar incoherencias.',
-  capMulti: 'Multidocumento', capQuote: 'Cita comprobada', capCross: 'Alertas cruzadas', capCsv: 'Exportación CSV',
+  capMulti: 'Revisión masiva', capQuote: 'Evidencia citada', capCross: 'Excepciones', capCsv: 'Exportación CSV',
   template: 'Plantilla', fields: 'Campos a extraer', addField: 'Añadir un campo, p. ej. «¿Hay cláusula de no competencia?»', add: 'Añadir',
   dropTitle: 'Arrastra varios documentos aquí', run: 'Revisar documentos', clear: 'Vaciar lista', export: 'Exportar CSV',
   limit: 'Máximo {{n}} documentos. Se han descartado {{x}}.', empty: 'Añade al menos un campo.', maxFields: 'Máximo {{n}} campos.',
@@ -28,6 +28,12 @@ window.I18N.es.tabular = {
   ctxDownload: 'Descargar', ctxOpen: 'Ver en contexto', ctxOnlyPdf: 'Solo disponible para PDF', ctxTitle: 'Documento en contexto', ctxFields: 'Campos extraídos', ctxPage: 'Página {{n}} de {{total}}', ctxShort: 'pág. {{n}}',
   ctxIn: 'Ampliar', ctxOut: 'Reducir', ctxLoading: 'Cargando el documento...', ctxFailed: 'No se pudo abrir el documento: {{message}}',
   ctxNoQuote: 'No se ha podido localizar la cita en el texto. Se muestra la página indicada por el modelo: revísala a mano.', ctxScan: 'Documento escaneado: se muestra la página indicada por el modelo, sin resaltado.', ctxNowhere: 'No se ha podido localizar este dato en el documento: revísalo a mano.',
+  editHint: 'Haz clic para editar el campo y su instrucción', editLabel: 'Nombre', editText: 'Criterio o instrucción', editPh: 'p. ej. «solo importes superiores a 30.000 €»',
+  mode: { add: 'Complementar', replace: 'Sustituir' }, original: 'Instrucción original: {{ask}}', apply: 'Aplicar', cancel: 'Cancelar', restore: 'Restaurar',
+  editedTip: 'Instrucción modificada: {{ask}}', progressEdit: 'Reanalizando «{{label}}»: {{done}} de {{total}}...', editNoFiles: 'Este análisis no incluye los documentos: solo se puede cambiar el nombre.',
+  notMet: 'No cumple el criterio', notMetLong: 'El documento no cumple el criterio del revisor. Se muestra el dato real.', outPrefix: 'No cumple el criterio: ',
+  conflicts: 'Contradicciones entre documentos ({{n}})', conflictsLead: 'Documentos que establecen cosas incompatibles sobre el mismo asunto. Haz clic en cada documento para ver el dato y su cita.',
+  conflictWhy: 'Por qué chocan', conflictImpact: 'Consecuencia', conflictVs: 'frente a',
   sev: { HIGH: 'ALTA', MEDIUM: 'MEDIA', LOW: 'BAJA' }
 };
 // Fraude & Riesgo en index_afianza.html (ES/EN/DE).

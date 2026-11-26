@@ -1430,6 +1430,17 @@
     .tr-dlg-hd .tr-lbl { display: block; } .tr-page { text-align: right; flex: none; } .tr-page b { font-size: .95rem; }
     .tr-val { font-size: .95rem; margin: 4px 0 18px; } #tr-dlg blockquote.b-bad, #tr-dlg blockquote.b-scan { border-left-color: var(--pii-c-border); background: var(--bg); }
     #tr-dlg blockquote { border-left: 3px solid var(--iptc); background: var(--iptc-bg); padding: 10px 14px; margin: 12px 0; } #tr-dlg .tr-btn { margin-top: 16px; }
+    .tr-th { font: inherit; font-weight: 600; color: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; overflow-wrap: anywhere; } .tr-th:hover { text-decoration: underline dotted; }
+    #tr-table th.tr-edited { background: var(--iptc-bg); box-shadow: inset 0 -2px 0 var(--iptc); } .tr-edited i, .tr-th i { font-style: normal; color: var(--iptc); } .tr-chip.tr-edited { border-color: var(--iptc-border); background: var(--iptc-bg); }
+    #tr-table th.tr-editing { min-width: 300px; max-width: none; background: var(--surface); box-shadow: inset 0 0 0 2px var(--iptc); font-weight: 400; }
+    .tr-ed { display: flex; flex-direction: column; gap: 8px; } .tr-ed label.tr-lbl { display: flex; flex-direction: column; gap: 4px; } .tr-ed input[name=label], .tr-ed textarea { font: inherit; font-size: .78rem; text-transform: none; letter-spacing: 0; color: var(--text); padding: 6px 8px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg); resize: vertical; }
+    .tr-ed-mode { display: flex; gap: 14px; font-size: .74rem; } .tr-ed small { color: var(--text-muted); font-size: .68rem; line-height: 1.4; } .tr-ed-acts { display: flex; flex-wrap: wrap; gap: 6px; } .tr-ed .tr-btn { padding: 5px 10px; font-size: .72rem; } .tr-primary { background: var(--text); color: var(--surface); border-color: var(--text); }
+    #tr-table td.tr-out { background: var(--bg); color: var(--text-muted); font-style: italic; }
+    .tr-confs { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); } .tr-confs > .tr-act { margin: 2px 0 4px; }
+    .tr-conf p { margin-top: 6px; } .tr-claims { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin: 10px 0 4px; }
+    .tr-claim { flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px; font: inherit; font-size: .78rem; line-height: 1.45; text-align: left; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 9px 11px; cursor: pointer; } .tr-claim:hover { border-color: var(--iptc); }
+    .tr-claim-hd { font-weight: 600; overflow-wrap: anywhere; } .tr-claim-hd em { font: 500 .66rem 'DM Mono', monospace; font-style: normal; color: var(--iptc); margin-right: 6px; } .tr-says { overflow-wrap: anywhere; }
+    .tr-vs { align-self: center; font-weight: 700; font-size: 1.1rem; color: var(--pii-c); }
     .tr-name { font-size: .95rem; overflow-wrap: anywhere; } .tr-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; } #tr-dlg .tr-acts .tr-btn { margin: 0; text-decoration: none; line-height: 1.4; } .tr-acts .tr-btn:hover:not(:disabled) { border-color: var(--iptc); color: var(--iptc); } .tr-acts .tr-btn:disabled { opacity: .5; cursor: not-allowed; } .tr-acts small { color: var(--text-muted); }
     /* Ver en contexto */
     #ctx { margin: 0 0 0 auto; padding: 0; border: 0; width: min(1440px, 94vw); max-width: none; height: 100vh; height: 100dvh; max-height: none; background: var(--bg); color: var(--text); overflow: hidden; } #ctx::backdrop { background: rgba(24,22,15,.45); }
@@ -1476,8 +1487,8 @@
 <script src="./prompts/es.js"></script>
 <script src="./prompts/en.js"></script>
 <script src="./prompts/de.js"></script>
-  <script src="locales/afianza.js?v=6"></script>
-  <script src="prompts/tabular.js?v=5"></script>
+  <script src="locales/afianza.js?v=8"></script>
+  <script src="prompts/tabular.js?v=7"></script>
   <script src="prompts/suite-afianza.js?v=5"></script>
 <script src="./js/i18n.js"></script></head>
 
@@ -1528,7 +1539,7 @@
       <button class="tab-btn active" data-tab="doc" data-sub="NLP · NER · PII · Taxonomy" data-i18n="tabs.doc" data-i18n-sub="tabs.docSub">Document Intelligence</button>
       <button class="tab-btn" data-tab="contracts" data-sub="Cláusulas · Compliance · Due Diligence" data-i18n="tabs.contracts" data-i18n-sub="tabs.contractsSub">Contratos &amp; Compliance</button>
       <button class="tab-btn" data-tab="fraud" data-sub="Fraude · Riesgo · Alertas" data-i18n="tabs.fraud" data-i18n-sub="tabs.fraudSub">Fraude &amp; Riesgo</button>
-      <button class="tab-btn" data-tab="tabular" data-sub="" data-i18n="tabs.tabular" data-i18n-sub="tabs.tabularSub">Tabular Review</button>
+      <button class="tab-btn" data-tab="tabular" data-sub="" data-i18n="tabs.tabular" data-i18n-sub="tabs.tabularSub">Due Diligence</button>
     </div>
 
     <section class="tab-panel" id="panel-doc" style="display: block;">
@@ -2664,8 +2675,8 @@
       }));
     }
   </script>
-  <script src="js/pdf-context.js?v=7"></script>
-  <script src="js/tabular-review.js?v=8"></script>
+  <script src="js/pdf-context.js?v=8"></script>
+  <script src="js/tabular-review.js?v=10"></script>
   <script src="js/ui-afianza.js?v=5"></script>
   <script src="js/doc-afianza.js?v=5"></script>
   <script src="js/contracts-afianza.js?v=5"></script>
