@@ -60,7 +60,7 @@ window.I18N.es = {
   },
   contracts: {
     heroTitle: 'Compara y audita <em>contratos</em><br>con criterio de compliance',
-    heroText: 'Sube un documento para analizar cláusulas, riesgos de compliance y alertas regulatorias, o añade un segundo documento para comparar dos versiones cláusula a cláusula.',
+    heroText: 'Analiza cláusulas, riesgos de compliance y alertas regulatorias de un contrato, o compara dos versiones cláusula a cláusula.',
     capClauses: 'Análisis de cláusulas',
     capAb: 'Comparación A/B',
     capCompliance: 'Riesgos de compliance',
@@ -96,7 +96,7 @@ window.I18N.es = {
   },
   fraud: {
     heroTitle: 'Detecta <em>fraude</em> y anticipa<br>riesgos legales y reputacionales',
-    heroText: 'Sube un expediente, informe de incidencia o registro de transacciones: identifica señales de fraude, anomalías y riesgos, con un mapa de riesgo accionable.',
+    heroText: 'Analiza un expediente, una incidencia o un registro de transacciones: señales de fraude, anomalías y mapa de riesgo.',
     capScore: 'Score de fraude',
     capAnomalies: 'Anomalías',
     capRegister: 'Registro de riesgos',

@@ -1,4 +1,4 @@
-// Presentación de Contratos & Compliance para index_afianza.html. Sustituye a renderContracts.
+// Presentación de Contratos & Compliance para index.html. Sustituye a renderContracts.
 (function () {
   const { esc, list, tag, empty, item, score, bySev, ol, row, summary, legend, toDiv, show } = AF;
   toDiv('c-summary-body');

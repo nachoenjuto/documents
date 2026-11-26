@@ -1,4 +1,4 @@
-// Ajuste de los tres prompts originales solo para index_afianza.html (castellano): resumen en puntos y alcance breve.
+// Ajuste de los tres prompts originales solo para index.html (castellano): resumen en puntos y alcance breve.
 // En EN/DE se mantienen los prompts comunes y la interfaz separa el resumen por frases.
 (function () {
   ['doc', 'contracts', 'fraud'].forEach(k => {

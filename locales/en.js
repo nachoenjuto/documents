@@ -60,7 +60,7 @@ window.I18N.en = {
   },
   contracts: {
     heroTitle: 'Compare and audit <em>contracts</em><br>through a compliance lens',
-    heroText: 'Upload a document to analyse its clauses, compliance risks and regulatory alerts, or add a second document to compare two versions clause by clause.',
+    heroText: 'Analyse the clauses, compliance risks and regulatory alerts of a contract, or compare two versions clause by clause.',
     capClauses: 'Clause analysis',
     capAb: 'A/B comparison',
     capCompliance: 'Compliance risks',
@@ -96,7 +96,7 @@ window.I18N.en = {
   },
   fraud: {
     heroTitle: 'Detect <em>fraud</em> and anticipate<br>legal and reputational risk',
-    heroText: 'Upload a case file, incident report or transaction log to identify fraud signals, anomalies and risks, with an actionable risk map.',
+    heroText: 'Analyse a case file, incident report or transaction log: fraud signals, anomalies and an actionable risk map.',
     capScore: 'Fraud score',
     capAnomalies: 'Anomalies',
     capRegister: 'Risk register',

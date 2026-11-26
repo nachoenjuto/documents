@@ -31,7 +31,7 @@ window.I18N.de = {
   },
   doc: {
     heroTitle: 'Analysieren Sie <em>jedes</em> Dokument<br>mit semantischer Intelligenz',
-    heroText: 'Extrahiert Metadaten, erkennt benannte Entitäten, klassifiziert nach Standardtaxonomien und identifiziert sensible personenbezogene Daten automatisch.',
+    heroText: 'Extrahiert Metadaten, erkennt Entitäten, klassifiziert nach Standardtaxonomien und findet sensible personenbezogene Daten.',
     capMetadata: 'Metadaten',
     capNer: 'NER · Personen · Organisationen · Orte',
     capIptc: 'IPTC Media Topics',
@@ -60,7 +60,7 @@ window.I18N.de = {
   },
   contracts: {
     heroTitle: 'Verträge <em>vergleichen</em> und prüfen<br>mit Compliance-Blick',
-    heroText: 'Laden Sie ein Dokument hoch, um Klauseln, Compliance-Risiken und regulatorische Hinweise zu analysieren, oder fügen Sie ein zweites Dokument hinzu, um zwei Fassungen Klausel für Klausel zu vergleichen.',
+    heroText: 'Analysiert Klauseln, Compliance-Risiken und regulatorische Hinweise eines Vertrags oder vergleicht zwei Fassungen.',
     capClauses: 'Klauselanalyse',
     capAb: 'A/B-Vergleich',
     capCompliance: 'Compliance-Risiken',
@@ -96,7 +96,7 @@ window.I18N.de = {
   },
   fraud: {
     heroTitle: '<em>Betrug</em> erkennen und<br>Rechts- und Reputationsrisiken vorbeugen',
-    heroText: 'Laden Sie eine Fallakte, einen Vorfallbericht oder ein Transaktionsprotokoll hoch: Betrugsindikatoren, Anomalien und Risiken werden erkannt und in einer handlungsorientierten Risikokarte dargestellt.',
+    heroText: 'Analysiert Fallakten, Vorfallberichte oder Transaktionsprotokolle: Betrugsindikatoren, Anomalien und Risikokarte.',
     capScore: 'Betrugs-Score',
     capAnomalies: 'Anomalien',
     capRegister: 'Risikoregister',

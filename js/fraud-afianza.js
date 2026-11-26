@@ -1,4 +1,4 @@
-// Presentación de Fraude & Riesgo para index_afianza.html. Sustituye a renderFraud de la página.
+// Presentación de Fraude & Riesgo para index.html. Sustituye a renderFraud de la página.
 (function () {
   const { esc, list, empty, bullets, item, points, score, bySev, ul, ol, row, summary, legend, toDiv, show } = AF;
   const W = { critical: 3, high: 3, medium: 2, low: 1 };

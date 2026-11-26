@@ -1,16 +1,19 @@
 # AI Use Case Suite — Logicalis
 
-Demo web app with three AI use cases for document-heavy work, powered by the Claude API:
+Demo web app with four AI use cases for document-heavy work, powered by the Claude API:
 
 | Tab | What it does |
 |---|---|
 | **Document Intelligence** | Extracts metadata, named entities (people, organisations, places), IPTC Media Topics, an adaptive secondary taxonomy and PII/GDPR flags, with a confidence score per block. |
 | **Contracts & Compliance** | Clause analysis, compliance risks, regulatory alerts and a Due Diligence score. A second document can be added to compare two versions clause by clause (A/B). |
 | **Fraud & Risk** | Takes a case file, incident report or transaction log (including CSV) and returns a fraud score, anomalies, a risk register and a risk map. |
+| **Due Diligence** | Tabular Review (Spanish only): extracts the same fields from up to 20 documents, checks every quote against the source text, raises cross-document alerts and exports CSV. |
 
 The UI and the prompts are available in **Spanish, English and German**.
 
-`index_afianza.html` is a client variant with the same three tabs plus **Due Diligence** (Tabular Review, Spanish only): it extracts the same fields from up to 20 documents, checks every quote against the source text, raises cross-document alerts and exports CSV. Templates and prompts live in `prompts/tabular.js`, UI strings in `locales/afianza.js` and logic in `js/tabular-review.js`. Model IDs and limits can be overridden by defining `window.TABULAR_CONFIG` before that script. It also restyles the results of the three original tabs (`js/*-afianza.js`, `prompts/suite-afianza.js`). **Guardar análisis** stores a full session as JSON (including the documents, so treat it as confidential) and **Cargar análisis guardado** restores a JSON session or an exported CSV (table only) without model or internet access; `js/i18next-fallback.js` covers i18next when its CDN is unreachable. Sample files: `Demo docs/clientes/afianza/`.
+**Due Diligence** templates and prompts live in `prompts/tabular.js`, UI strings in `locales/afianza.js` and logic in `js/tabular-review.js`. Model IDs and limits can be overridden by defining `window.TABULAR_CONFIG` before that script. The results of the other three tabs are restyled by `js/*-afianza.js` and `prompts/suite-afianza.js`. **Guardar análisis** stores a full session as JSON (including the documents, so treat it as confidential) and **Cargar análisis guardado** restores a JSON session or an exported CSV (table only) without model or internet access; `js/i18next-fallback.js` covers i18next when its CDN is unreachable. Sample files: `Demo docs/clientes/afianza/`.
+
+This page started as the Afianza client variant (`index_afianza.html`) and replaced the original three-tab `index.html`, which is still in the Git history.
 
 ## Quick start
 
@@ -47,7 +50,7 @@ Resolved in this order: `?lang=es|en|de` in the URL → preference saved in the 
 
 ```
 .
-├── index.html                      # The whole app: markup, CSS and the logic of the three tabs
+├── index.html                      # The whole app: markup, CSS and the logic of the four tabs
 ├── js/
 │   └── i18n.js                     # i18next bootstrap, language detection, header language menu
 ├── locales/                        # UI strings per language

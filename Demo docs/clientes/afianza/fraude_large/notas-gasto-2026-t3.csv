@@ -1,0 +1,120 @@
+id_gasto,empleado_id,empleado,departamento,fecha,categoria,proveedor,importe,moneda,metodo_pago,aprobador,estado,notas
+GTO-2026-T3-001,EMP-022,Javier Soto,IT,2026-07-02,Transporte,Tren alta velocidad,11.03,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-002,EMP-080,Horacio Belinchón,Administración,2026-07-02,Software,Licencias Nube,119.25,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-003,EMP-031,Marta Ibáñez,Ventas,2026-07-03,Alojamiento,Hotel Miralar,499.00,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Reunión con cliente
+GTO-2026-T3-004,EMP-045,Sonia Reyes,Finanzas,2026-07-03,Comidas,Mesón del Puente,61.99,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-005,EMP-052,David Ortega,Finanzas,2026-07-06,Software,Licencias Nube,66.01,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-006,EMP-071,Hugo Cifuentes,Ventas,2026-07-06,Material de oficina,Papelería Trazos,72.70,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-007,EMP-022,Javier Soto,IT,2026-07-07,Formación,Aula Técnica,171.61,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-008,EMP-045,Sonia Reyes,Finanzas,2026-07-07,Material de oficina,Papelería Trazos,55.92,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-009,EMP-007,Pedro Salas,Operaciones,2026-07-08,Comidas,Mesón del Puente,62.64,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-010,EMP-022,Javier Soto,IT,2026-07-08,Formación,Aula Técnica,213.31,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-011,EMP-071,Hugo Cifuentes,Ventas,2026-07-08,Formación,Aula Técnica,118.80,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-012,EMP-031,Marta Ibáñez,Ventas,2026-07-09,Comidas,Restaurante Costa Serena,498.50,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Reunión con cliente
+GTO-2026-T3-013,EMP-063,Elena Marchena,Dirección,2026-07-09,Alojamiento,Hotel Almazara,102.78,EUR,Tarjeta corporativa,Ramiro Tordesillas,Aprobado,
+GTO-2026-T3-014,EMP-071,Hugo Cifuentes,Ventas,2026-07-09,Transporte,Taxi urbano,62.72,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-015,EMP-007,Pedro Salas,Operaciones,2026-07-13,Material de oficina,Papelería Trazos,54.18,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-016,EMP-045,Sonia Reyes,Finanzas,2026-07-13,Transporte,Aparcamiento centro,84.88,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-017,EMP-052,David Ortega,Finanzas,2026-07-13,Material de oficina,Papelería Trazos,69.85,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-018,EMP-007,Pedro Salas,Operaciones,2026-07-14,Transporte,Aparcamiento centro,59.38,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-019,EMP-022,Javier Soto,IT,2026-07-14,Material de oficina,Papelería Trazos,64.03,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-020,EMP-071,Hugo Cifuentes,Ventas,2026-07-14,Comidas,Asador Los Robles,186.40,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-021,EMP-022,Javier Soto,IT,2026-07-15,Alojamiento,Hotel Puerta Sur,84.83,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-022,EMP-007,Pedro Salas,Operaciones,2026-07-16,Transporte,Aparcamiento centro,54.73,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-023,EMP-022,Javier Soto,IT,2026-07-16,Alojamiento,Hotel Almazara,148.43,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-024,EMP-031,Marta Ibáñez,Ventas,2026-07-16,Comidas,Restaurante Costa Serena,497.00,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Reunión con cliente
+GTO-2026-T3-025,EMP-063,Elena Marchena,Dirección,2026-07-16,Transporte,Taxi urbano,110.93,EUR,Tarjeta corporativa,Ramiro Tordesillas,Aprobado,
+GTO-2026-T3-026,EMP-063,Elena Marchena,Dirección,2026-07-16,Formación,Aula Técnica,148.93,EUR,Tarjeta corporativa,Ramiro Tordesillas,Aprobado,
+GTO-2026-T3-027,EMP-080,Horacio Belinchón,Administración,2026-07-16,Material de oficina,Papelería Trazos,19.16,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-028,EMP-071,Hugo Cifuentes,Ventas,2026-07-17,Alojamiento,Hotel Puerta Sur,111.16,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-029,EMP-071,Hugo Cifuentes,Ventas,2026-07-17,Comidas,Asador Los Robles,186.40,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Ticket reenviado
+GTO-2026-T3-030,EMP-014,Laura Gómez,Marketing,2026-07-20,Material de oficina,Papelería Trazos,62.71,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-031,EMP-045,Sonia Reyes,Finanzas,2026-07-20,Software,Licencias Nube,28.74,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-032,EMP-007,Pedro Salas,Operaciones,2026-07-21,Formación,Aula Técnica,116.39,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-033,EMP-022,Javier Soto,IT,2026-07-21,Transporte,Aparcamiento centro,96.14,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-034,EMP-045,Sonia Reyes,Finanzas,2026-07-21,Alojamiento,Hotel Almazara,128.70,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-035,EMP-052,David Ortega,Finanzas,2026-07-21,Comidas,Mesón del Puente,34.49,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-036,EMP-031,Marta Ibáñez,Ventas,2026-07-23,Alojamiento,Hotel Miralar,499.00,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Reunión con cliente
+GTO-2026-T3-037,EMP-022,Javier Soto,IT,2026-07-24,Formación,Aula Técnica,117.50,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-038,EMP-080,Horacio Belinchón,Administración,2026-07-24,Material de oficina,Papelería Trazos,51.80,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-039,EMP-063,Elena Marchena,Dirección,2026-07-27,Material de oficina,Papelería Trazos,48.48,EUR,Tarjeta corporativa,Ramiro Tordesillas,Aprobado,
+GTO-2026-T3-040,EMP-007,Pedro Salas,Operaciones,2026-07-28,Software,Licencias Nube,58.53,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-041,EMP-080,Horacio Belinchón,Administración,2026-07-28,Software,Licencias Nube,284.46,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-042,EMP-014,Laura Gómez,Marketing,2026-07-30,Transporte,Taxi urbano,79.43,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-043,EMP-022,Javier Soto,IT,2026-07-30,Transporte,Taxi urbano,93.23,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-044,EMP-063,Elena Marchena,Dirección,2026-07-30,Consultoría,"Tordalia Inversiones, S.L.",3800.00,EUR,Transferencia,Ramiro Tordesillas,Aprobado,"Gastos de representación del contrato de gestión, sin justificantes"
+GTO-2026-T3-045,EMP-007,Pedro Salas,Operaciones,2026-08-03,Alojamiento,Hotel Almazara,144.45,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-046,EMP-080,Horacio Belinchón,Administración,2026-08-03,Formación,Aula Técnica,183.15,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-047,EMP-045,Sonia Reyes,Finanzas,2026-08-05,Software,Licencias Nube,174.15,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-048,EMP-045,Sonia Reyes,Finanzas,2026-08-05,Alojamiento,Hotel Puerta Sur,109.86,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-049,EMP-045,Sonia Reyes,Finanzas,2026-08-05,Formación,Aula Técnica,640.00,EUR,Tarjeta corporativa,Sonia Reyes,Aprobado,
+GTO-2026-T3-050,EMP-007,Pedro Salas,Operaciones,2026-08-06,Material de oficina,Papelería Trazos,43.28,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-051,EMP-007,Pedro Salas,Operaciones,2026-08-06,Alojamiento,Hotel Puerta Sur,97.59,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-052,EMP-014,Laura Gómez,Marketing,2026-08-07,Alojamiento,Hotel Almazara,94.79,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-053,EMP-031,Marta Ibáñez,Ventas,2026-08-08,Comidas,Chiringuito Cala Blanca,100.50,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Empleada en vacaciones del 3 al 23 de agosto según RRHH
+GTO-2026-T3-054,EMP-031,Marta Ibáñez,Ventas,2026-08-09,Comidas,Chiringuito Cala Blanca,101.50,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Empleada en vacaciones del 3 al 23 de agosto según RRHH
+GTO-2026-T3-055,EMP-014,Laura Gómez,Marketing,2026-08-10,Software,Licencias Nube,77.32,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-056,EMP-014,Laura Gómez,Marketing,2026-08-10,Transporte,Aparcamiento centro,137.11,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-057,EMP-080,Horacio Belinchón,Administración,2026-08-10,Formación,Aula Técnica,192.83,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-058,EMP-022,Javier Soto,IT,2026-08-11,Material de oficina,Papelería Trazos,34.16,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-059,EMP-052,David Ortega,Finanzas,2026-08-11,Formación,Aula Técnica,131.29,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-060,EMP-022,Javier Soto,IT,2026-08-12,Alojamiento,Hotel Puerta Sur,139.29,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-061,EMP-052,David Ortega,Finanzas,2026-08-14,Comidas,Cafetería Norte,39.36,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-062,EMP-071,Hugo Cifuentes,Ventas,2026-08-14,Alojamiento,Hotel Almazara,136.06,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-063,EMP-031,Marta Ibáñez,Ventas,2026-08-15,Comidas,Chiringuito Cala Blanca,107.50,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Empleada en vacaciones del 3 al 23 de agosto según RRHH
+GTO-2026-T3-064,EMP-031,Marta Ibáñez,Ventas,2026-08-16,Comidas,Chiringuito Cala Blanca,108.50,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Empleada en vacaciones del 3 al 23 de agosto según RRHH
+GTO-2026-T3-065,EMP-052,David Ortega,Finanzas,2026-08-17,Software,Licencias Nube,214.40,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-066,EMP-080,Horacio Belinchón,Administración,2026-08-17,Alojamiento,Hotel Puerta Sur,90.53,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-067,EMP-063,Elena Marchena,Dirección,2026-08-21,Formación,Aula Técnica,197.25,EUR,Tarjeta corporativa,Ramiro Tordesillas,Aprobado,
+GTO-2026-T3-068,EMP-052,David Ortega,Finanzas,2026-08-26,Transporte,Tren alta velocidad,119.92,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-069,EMP-022,Javier Soto,IT,2026-08-27,Transporte,Tren alta velocidad,67.56,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-070,EMP-031,Marta Ibáñez,Ventas,2026-08-27,Comidas,Restaurante Costa Serena,496.80,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Reunión con cliente
+GTO-2026-T3-071,EMP-080,Horacio Belinchón,Administración,2026-08-28,Software,Licencias Nube,74.79,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-072,EMP-063,Elena Marchena,Dirección,2026-08-30,Consultoría,"Tordalia Inversiones, S.L.",3800.00,EUR,Transferencia,Ramiro Tordesillas,Aprobado,"Gastos de representación del contrato de gestión, sin justificantes"
+GTO-2026-T3-073,EMP-022,Javier Soto,IT,2026-08-31,Comidas,Mesón del Puente,50.94,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-074,EMP-063,Elena Marchena,Dirección,2026-09-01,Formación,Aula Técnica,151.22,EUR,Tarjeta corporativa,Ramiro Tordesillas,Aprobado,
+GTO-2026-T3-075,EMP-014,Laura Gómez,Marketing,2026-09-02,Material de oficina,Papelería Trazos,29.90,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-076,EMP-022,Javier Soto,IT,2026-09-02,Alojamiento,Hotel Almazara,137.82,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-077,EMP-045,Sonia Reyes,Finanzas,2026-09-02,Transporte,Taxi urbano,98.23,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-078,EMP-052,David Ortega,Finanzas,2026-09-02,Consultoría,"Vía Solana Servicios, S.L.",2900.00,EUR,Transferencia,David Ortega,Aprobado,Sin contrato de referencia
+GTO-2026-T3-079,EMP-014,Laura Gómez,Marketing,2026-09-04,Publicidad,Impulso Digital Norte,5000.00,EUR,Transferencia,Carlos Pena,Aprobado,Aprobado el mismo día de la solicitud
+GTO-2026-T3-080,EMP-014,Laura Gómez,Marketing,2026-09-07,Comidas,Restaurante La Ribera,28.94,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-081,EMP-014,Laura Gómez,Marketing,2026-09-07,Consultoría,"Vía Solana Servicios, S.L.",2900.00,EUR,Transferencia,Carlos Pena,Aprobado,Servicios generales
+GTO-2026-T3-082,EMP-022,Javier Soto,IT,2026-09-07,Material de oficina,Papelería Trazos,29.12,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-083,EMP-007,Pedro Salas,Operaciones,2026-09-08,Formación,Aula Técnica,138.55,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-084,EMP-007,Pedro Salas,Operaciones,2026-09-08,Consultoría,"Vía Solana Servicios, S.L.",2900.00,EUR,Transferencia,Marta Vidal,Aprobado,Servicios generales
+GTO-2026-T3-085,EMP-045,Sonia Reyes,Finanzas,2026-09-08,Transporte,Tren alta velocidad,23.95,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-086,EMP-022,Javier Soto,IT,2026-09-09,Material de oficina,Papelería Trazos,42.42,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-087,EMP-022,Javier Soto,IT,2026-09-09,Consultoría,"Vía Solana Servicios, S.L.",2900.00,EUR,Transferencia,Marta Vidal,Aprobado,Servicios generales
+GTO-2026-T3-088,EMP-052,David Ortega,Finanzas,2026-09-09,Transporte,Taxi urbano,91.56,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-089,EMP-052,David Ortega,Finanzas,2026-09-09,Alojamiento,Hotel Almazara,137.09,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-090,EMP-080,Horacio Belinchón,Administración,2026-09-09,Formación,Aula Técnica,161.26,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-091,EMP-031,Marta Ibáñez,Ventas,2026-09-10,Alojamiento,Hotel Miralar,499.00,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,Reunión con cliente
+GTO-2026-T3-092,EMP-052,David Ortega,Finanzas,2026-09-10,Software,Licencias Nube,146.22,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-093,EMP-080,Horacio Belinchón,Administración,2026-09-10,Consultoría,"Vía Solana Servicios, S.L.",2900.00,EUR,Transferencia,David Ortega,Aprobado,Servicios generales
+GTO-2026-T3-094,EMP-014,Laura Gómez,Marketing,2026-09-11,Material de oficina,Papelería Trazos,59.54,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-095,EMP-045,Sonia Reyes,Finanzas,2026-09-14,Material de oficina,Papelería Trazos,49.54,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-096,EMP-052,David Ortega,Finanzas,2026-09-14,Comidas,Restaurante La Ribera,34.81,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-097,EMP-071,Hugo Cifuentes,Ventas,2026-09-15,Material de oficina,Papelería Trazos,64.74,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-098,EMP-071,Hugo Cifuentes,Ventas,2026-09-15,Kilometraje,Vehículo propio,712.50,EUR,Reembolso,Carlos Pena,Aprobado,"3.750 km en un día a 0,19 euros"
+GTO-2026-T3-099,EMP-071,Hugo Cifuentes,Ventas,2026-09-15,Alojamiento,Hotel Puerta Sur,118.00,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,"Misma fecha, Sevilla"
+GTO-2026-T3-100,EMP-080,Horacio Belinchón,Administración,2026-09-15,Material de oficina,Papelería Trazos,69.82,EUR,Tarjeta corporativa,David Ortega,Aprobado,
+GTO-2026-T3-101,EMP-014,Laura Gómez,Marketing,2026-09-16,Formación,Aula Técnica,128.50,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-102,EMP-022,Javier Soto,IT,2026-09-17,Alojamiento,Hotel Puerta Sur,118.16,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-103,EMP-014,Laura Gómez,Marketing,2026-09-18,Publicidad,Impulso Digital Norte,5000.00,EUR,Transferencia,Carlos Pena,Aprobado,Aprobado el mismo día de la solicitud
+GTO-2026-T3-104,EMP-071,Hugo Cifuentes,Ventas,2026-09-18,Software,Licencias Nube,224.02,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-105,EMP-080,Horacio Belinchón,Administración,2026-09-18,Material de oficina,"Suministros Fresnalia, S.L.",1980.00,EUR,Efectivo,David Ortega,Aprobado,Recibo manuscrito
+GTO-2026-T3-106,EMP-014,Laura Gómez,Marketing,2026-09-21,Alojamiento,Hotel Almazara,120.75,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-107,EMP-014,Laura Gómez,Marketing,2026-09-21,Comidas,Mesón del Puente,42.05,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-108,EMP-052,David Ortega,Finanzas,2026-09-21,Formación,Aula Técnica,277.38,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-109,EMP-052,David Ortega,Finanzas,2026-09-21,Formación,Aula Técnica,158.94,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-110,EMP-007,Pedro Salas,Operaciones,2026-09-23,Comidas,Restaurante La Ribera,41.95,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-111,EMP-007,Pedro Salas,Operaciones,2026-09-23,Comidas,Cafetería Norte,27.83,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-112,EMP-071,Hugo Cifuentes,Ventas,2026-09-23,Formación,Aula Técnica,260.25,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-113,EMP-007,Pedro Salas,Operaciones,2026-09-24,Software,Licencias Nube,232.11,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-114,EMP-031,Marta Ibáñez,Ventas,2026-09-24,Material de oficina,Joyería Cerval,320.00,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-115,EMP-022,Javier Soto,IT,2026-09-25,Formación,Aula Técnica,49.56,EUR,Tarjeta corporativa,Marta Vidal,Aprobado,
+GTO-2026-T3-116,EMP-052,David Ortega,Finanzas,2026-09-25,Material de oficina,Papelería Trazos,53.20,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-117,EMP-014,Laura Gómez,Marketing,2026-09-28,Material de oficina,Papelería Trazos,14.56,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-118,EMP-014,Laura Gómez,Marketing,2026-09-29,Formación,Aula Técnica,57.81,EUR,Tarjeta corporativa,Carlos Pena,Aprobado,
+GTO-2026-T3-119,EMP-063,Elena Marchena,Dirección,2026-09-30,Consultoría,"Tordalia Inversiones, S.L.",3800.00,EUR,Transferencia,Ramiro Tordesillas,Aprobado,"Gastos de representación del contrato de gestión, sin justificantes"

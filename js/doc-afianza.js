@@ -1,4 +1,4 @@
-// Presentación de Document Intelligence para index_afianza.html. Sustituye a render.
+// Presentación de Document Intelligence para index.html. Sustituye a render.
 (function () {
   const { esc, list, empty, item, points, score, bySev, ul, row, summary, legend, toDiv, show } = AF;
   const sum = toDiv('summary-body'), grid = sum.closest('.g2');

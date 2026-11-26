@@ -1,0 +1,2 @@
+// Casos sin conexión de los tabs Document Intelligence, Contratos y Fraude. Generado por generador_large/offline_suite.py.
+window.DEMO_OFFLINE_SUITE = {"doc": [{"key": "doc", "label": "Nómina de octubre (E02)", "docs": 1}], "contracts": [{"key": "contracts", "label": "Distribución: borrador frente a plantilla", "docs": 2}], "fraud": [{"key": "fraud", "label": "Notas de gasto del T3 2026", "docs": 1}]};

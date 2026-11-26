@@ -254,7 +254,7 @@
   }
   function renderResults(scroll) {
     renderLegend();
-    $('tr-saved').textContent = saved && !saved.live ? t('tabular.savedFrom', saved) : '';
+    $('tr-saved').textContent = saved && !saved.live ? t(saved.synthetic ? 'tabular.savedSynthetic' : 'tabular.savedFrom', saved) : '';
     const failed = rows.filter(r => r.error).map(r => r.id);
     let h = failed.length ? `<p class="tr-warn">${esc(t('tabular.partial', { list: failed.join(', ') }))}</p>` : '';
     if (cross && cross.error) h += `<p class="tr-warn">${esc(t('tabular.crossFailed', { message: cross.error }))}</p>`;
@@ -280,7 +280,7 @@
             return c.value == null ? `<td class="tr-miss">${t('tabular.missing')}</td>` :
               `<td class="r-${c.risk}"><button type="button" class="tr-cell" data-r="${r.id}" data-f="${f.key}">${esc(c.value)} <i class="q-${c.check}">${mark[c.check]}</i></button></td>`;
           }).join('')) + '</tr>').join('') + '</tbody>';
-    $('tr-usage').textContent = t('tabular.usage', { in: stats.in, out: stats.out, s: stats.s });
+    $('tr-usage').textContent = saved && saved.synthetic && !saved.live ? '' : t('tabular.usage', { in: stats.in, out: stats.out, s: stats.s });
     $('results-t').classList.add('show');
     if (scroll) $('results-t').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -328,11 +328,16 @@
   const hasDocs = () => rows.every(r => r.error || r.file);
   const hasKey = () => $('api-key').value.trim().startsWith('sk-ant');
   function formErr(form, m) { let p = form.querySelector('.tr-ed-err'); if (!p) { p = document.createElement('small'); p.className = 'tr-warn tr-ed-err'; p.setAttribute('role', 'alert'); form.querySelector('.tr-ed-acts').before(p); } p.textContent = m; }
+  // Ejemplo de criterio propio de cada columna; los campos añadidos usan uno genérico.
+  function phOf(f) {
+    const base = T.templates[runTpl].fields.find(x => x.key === f.key || x.label === ((f.orig && f.orig.label) || f.label));
+    return f.ph || (base && base.ph) || t('tabular.editPh');
+  }
   function editorTh(f) {
     const e = f.edit || { text: '', mode: 'add' }, docs = hasDocs();
     return `<th scope="col" class="tr-editing"><form class="tr-ed" data-k="${f.key}" aria-label="${esc(t('tabular.editHint'))}">
       <label class="tr-lbl">${t('tabular.editLabel')}<input name="label" maxlength="60" value="${esc(f.label)}"></label>
-      <label class="tr-lbl">${t('tabular.editText')}<textarea name="text" rows="3" maxlength="500" placeholder="${esc(t('tabular.editPh'))}" ${docs ? '' : 'disabled'}>${esc(e.text)}</textarea></label>
+      <label class="tr-lbl">${t('tabular.editText')}<textarea name="text" rows="3" maxlength="500" placeholder="${esc(phOf(f))}" ${docs ? '' : 'disabled'}>${esc(e.text)}</textarea></label>
       <div class="tr-ed-mode" role="radiogroup">${['add', 'replace'].map(m => `<label><input type="radio" name="mode" value="${m}" ${e.mode === m ? 'checked' : ''} ${docs ? '' : 'disabled'}> ${t('tabular.mode.' + m)}</label>`).join('')}</div>
       <small>${esc(t('tabular.original', { ask: f.ask }))}</small>${docs ? '' : `<small class="tr-warn">${t('tabular.editNoFiles')}</small>`}
       <div class="tr-ed-acts"><button type="submit" class="tr-btn tr-primary">${t('tabular.apply')}</button><button type="button" class="tr-btn" data-act="cancel">${t('tabular.cancel')}</button>${f.edit ? `<button type="button" class="tr-btn" data-act="restore">${t('tabular.restore')}</button>` : ''}</div></form></th>`;
@@ -405,7 +410,7 @@
     try {
       const docs = await Promise.all(rows.map(async r => ({ id: r.id, name: r.name, error: r.error, cut: r.cut, cells: r.cells, type: r.file ? r.file.type : '', data: r.file ? await b64(r.file) : null })));
       const date = new Date().toISOString();
-      download(new Blob([JSON.stringify({ format: 'tabular-review', version: 1, date: (saved && !saved.live && saved.iso) || date, template: runTpl, fields: runFields.map(({ snap, ...f }) => f), rows: docs, cross, stats })], { type: 'application/json' }), `analisis-${runTpl}-${date.slice(0, 10)}.json`);
+      download(new Blob([JSON.stringify({ format: 'tabular-review', version: 1, date: (saved && !saved.live && saved.iso) || date, template: runTpl, ...(saved && saved.synthetic ? { synthetic: true } : {}), fields: runFields.map(({ snap, ...f }) => f), rows: docs, cross, stats })], { type: 'application/json' }), `analisis-${runTpl}-${date.slice(0, 10)}.json`);
     } catch (e) { console.error(e); err(t('common.error', { message: e.message })); }
   }
   // El archivo es entrada no fiable: se validan los valores que acaban en HTML o en clases.
@@ -423,7 +428,7 @@
     return e ? { edit: e, orig: { label: String((f.orig && f.orig.label) || f.label || f.key) } } : {};
   }
   function parseSession(text) {
-    const d = JSON.parse(text);
+    const d = typeof text === 'string' ? JSON.parse(text) : text;
     if (d.format !== 'tabular-review' || !Array.isArray(d.fields) || !Array.isArray(d.rows) || !d.rows.length) throw bad();
     const flds = d.fields.filter(f => f && typeof f.key === 'string').map(f => ({ key: f.key.replace(/\W/g, '_'), src: f.key, label: String(f.label || f.key), ask: String(f.ask || f.label || ''), custom: !!f.custom, ...cleanEdit(f) }));
     if (!flds.length) throw bad();
@@ -441,7 +446,7 @@
       conflicts: cleanConflicts(d.cross.conflicts, ids)
     };
     const s = d.stats || {}, when = new Date(d.date);
-    return { tpl: T.templates[d.template] ? d.template : 'dd', fields: flds, rows: out, cross: cr, stats: { in: num(s.in, 1e9) || 0, out: num(s.out, 1e9) || 0, s: num(s.s, 1e6) || 0 }, iso: d.date, date: isNaN(when) ? '' : ' (' + when.toLocaleString('es-ES') + ')' };
+    return { tpl: T.templates[d.template] ? d.template : 'dd', fields: flds, rows: out, cross: cr, stats: { in: num(s.in, 1e9) || 0, out: num(s.out, 1e9) || 0, s: num(s.s, 1e6) || 0 }, iso: d.date, date: isNaN(when) ? '' : ' (' + when.toLocaleString('es-ES') + ')', synthetic: d.synthetic === true };
   }
   function parseCsvRows(s) {
     s = s.replace(/^\ufeff/, '');
@@ -482,18 +487,30 @@
       let text;
       // Excel puede volver a guardar el CSV en Windows-1252.
       try { text = new TextDecoder('utf-8', { fatal: true }).decode(buf); } catch (e) { text = new TextDecoder('windows-1252').decode(buf); }
-      const d = /\.json$/i.test(file.name) ? parseSession(text) : parseCsv(text, file.name);
-      releaseUrls();
-      rows = d.rows.map(r => ({ ...r, url: r.file ? URL.createObjectURL(r.file) : null }));
-      runFields = d.fields; runTpl = d.tpl; cross = d.cross; stats = d.stats;
-      saved = { name: file.name, date: d.date, iso: d.iso, live: false };
-      files = rows.every(r => r.file) ? rows.map(r => r.file) : [];
-      customN = Math.max(customN, ...d.fields.map(f => +(/^custom_(\d+)$/.exec(f.key) || [0, 0])[1]));
-      tplKey = d.tpl;
-      fields = files.length ? d.fields.map(f => ({ ...f })) : T.templates[tplKey].fields.map(f => ({ ...f }));
-      err(''); renderConfig(); renderFiles(); renderResults(true);
+      show(/\.json$/i.test(file.name) ? parseSession(text) : parseCsv(text, file.name), file.name);
     } catch (e) { console.error(e); err(t('tabular.badFile', { name: file.name, message: e.message })); }
   }
+  // Pinta un análisis cargado (archivo guardado o demo sin conexión) sin llamar al modelo.
+  function show(d, name) {
+    releaseUrls();
+    rows = d.rows.map(r => ({ ...r, url: r.file ? URL.createObjectURL(r.file) : null }));
+    runFields = d.fields; runTpl = d.tpl; cross = d.cross; stats = d.stats;
+    saved = { name, date: d.date, iso: d.iso, live: false, synthetic: !!d.synthetic };
+    files = rows.every(r => r.file) ? rows.map(r => r.file) : [];
+    customN = Math.max(customN, ...d.fields.map(f => +(/^custom_(\d+)$/.exec(f.key) || [0, 0])[1]));
+    tplKey = d.tpl;
+    fields = files.length ? d.fields.map(f => ({ ...f })) : T.templates[tplKey].fields.map(f => ({ ...f }));
+    err(''); renderConfig(); renderFiles(); renderResults(true);
+  }
+  // Demo sin conexión (js/demo-offline.js): recibe el análisis ya cargado en memoria.
+  window.TabularReview = {
+    busy: () => running,
+    loadSession(data, name) {
+      if (running) return false;
+      try { show(parseSession(data), name); return true; }
+      catch (e) { console.error(e); err(t('tabular.badFile', { name, message: e.message })); return false; }
+    }
+  };
 
   // ---- Eventos ----
   const dz = $('drop-zone-t');

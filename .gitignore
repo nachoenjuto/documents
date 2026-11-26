@@ -1,0 +1,11 @@
+# Sistema
+.DS_Store
+__pycache__/
+*MacBook Air*
+
+# Material interno o de cliente: no publicar (el repositorio es público)
+Demo docs/clientes/afianza/notas.txt
+Demo docs/clientes/afianza/casos-de-uso-afianza.md
+Demo docs/clientes/afianza/trampas.md
+Demo docs/clientes/afianza/trampas_large.md
+Kit_Presentaciones_Logicalis/

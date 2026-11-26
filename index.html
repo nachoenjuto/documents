@@ -1384,15 +1384,112 @@
         width: 150px;
       }
     }
+    /* ===== TABULAR REVIEW ===== */
+    .tr-tpls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 8px 0 18px; }
+    .tr-tpl { font: inherit; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; cursor: pointer; color: var(--text); }
+    .tr-tpl.on { border-color: var(--text); box-shadow: inset 0 0 0 1px var(--text); }
+    .tr-tpl b { display: block; font-size: .85rem; } .tr-tpl small { color: var(--text-muted); font-size: .7rem; }
+    .tr-lbl { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+    .tr-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+    .tr-chip { display: inline-flex; gap: 6px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 4px 10px; font-size: .75rem; }
+    .tr-chip em, #tr-table th em { font: 500 .68rem 'DM Mono', monospace; color: var(--iptc); margin-right: 4px; }
+    .tr-chip button { border: 0; background: none; cursor: pointer; color: var(--text-muted); font-size: .9rem; }
+    .tr-add { display: flex; gap: 8px; margin-bottom: 22px; }
+    .tr-add input { flex: 1; min-width: 0; font: inherit; font-size: .8rem; padding: 9px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+    .tr-btn { font: inherit; font-size: .78rem; padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); cursor: pointer; color: var(--text); }
+    .tr-alert { border: 1px solid var(--border); border-left-width: 4px; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-size: .8rem; line-height: 1.5; }
+    .tr-alert.HIGH { border-left-color: var(--pii-c); } .tr-alert.MEDIUM { border-left-color: #c9872b; } .tr-alert.LOW { border-left-color: var(--pii-m); }
+    .tr-alert-hd { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 4px; }
+    .tr-sev { font: 500 .62rem 'DM Mono', monospace; border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; }
+    .tr-doc { font: 500 .66rem 'DM Mono', monospace; border: 1px solid var(--iptc-border); background: var(--iptc-bg); color: var(--iptc); border-radius: 4px; padding: 2px 6px; cursor: pointer; }
+    .tr-act { color: var(--text-muted); font-size: .78rem; margin-top: 4px; } .tr-warn { color: var(--pii-c); font-size: .78rem; }
+    .tr-scroll { overflow: auto; max-height: 75vh; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+    #tr-table { border-collapse: separate; border-spacing: 0; font-size: .74rem; line-height: 1.4; min-width: 100%; }
+    #tr-table th, #tr-table td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 8px 10px; min-width: 140px; max-width: 220px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+    #tr-table thead th { position: sticky; top: 0; background: var(--bg); z-index: 2; }
+    #tr-table tr > th:first-child { position: sticky; left: 0; background: var(--bg); z-index: 1; }
+    #tr-table thead th:first-child { z-index: 3; } #tr-table small { display: block; }
+    #tr-table td.r-HIGH { background: var(--pii-c-bg); } #tr-table td.r-MEDIUM { background: var(--pii-h-bg); }
+    #tr-table tr.hit td, #tr-table tr.hit th { background: var(--iptc-bg) !important; }
+    .tr-miss { color: var(--text-muted); font-style: italic; }
+    .tr-cell { font: inherit; color: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; overflow-wrap: anywhere; } .tr-cell:hover { text-decoration: underline; }
+    .q-ok { color: var(--iptc); } .q-bad { color: var(--pii-c); } .q-scan { color: var(--pii-h); } .tr-cell i { font-style: normal; font-weight: 700; }
+    .dot { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid transparent; }
+    .dot.HIGH { background: var(--pii-c); } .dot.MEDIUM { background: #c9872b; } .dot.LOW { background: var(--pii-m); }
+    .tr-legend { position: sticky; top: 60px; z-index: 20; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 6px 16px; padding: 10px 0; background: var(--bg); font-size: .74rem; }
+    .tr-key { display: inline-flex; align-items: center; } .tr-key b { margin-left: 5px; font: 500 .68rem 'DM Mono', monospace; color: var(--text-muted); } .tr-key i[class^=q-] { font-style: normal; font-weight: 700; margin-right: 5px; }
+    .tr-sep { width: 1px; height: 14px; background: var(--border); }
+    .tr-title { font-size: 1rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 10px; }
+    .tr-bullets { margin: 0 0 18px 18px; font-size: .84rem; line-height: 1.55; } .tr-bullets li { margin-bottom: 5px; padding-left: 4px; } .tr-bullets li::marker { color: var(--iptc); }
+    .tr-saved:empty { display: none; } .tr-saved { border: 1px solid var(--pii-h-border); background: var(--pii-h-bg); color: var(--pii-h); border-radius: 6px; padding: 9px 14px; font-size: .78rem; margin-bottom: 6px; }
+    .tr-busy { opacity: .55; pointer-events: none; }
+    #tr-table td.r-LOW { background: var(--pii-m-bg); }
+    .tr-foot { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-top: 12px; font-size: .74rem; color: var(--text-muted); }
+    #tr-dlg { margin: auto; width: min(760px, 92vw); max-height: 88vh; overflow: auto; border: 1px solid var(--border); border-radius: 10px; padding: 24px; line-height: 1.6; font-size: .85rem; } #tr-dlg::backdrop { background: rgba(24,22,15,.45); }
+    .tr-dlg-hd { display: flex; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 16px; }
+    .tr-dlg-hd .tr-lbl { display: block; } .tr-page { text-align: right; flex: none; } .tr-page b { font-size: .95rem; }
+    .tr-val { font-size: .95rem; margin: 4px 0 18px; } #tr-dlg blockquote.b-bad, #tr-dlg blockquote.b-scan { border-left-color: var(--pii-c-border); background: var(--bg); }
+    #tr-dlg blockquote { border-left: 3px solid var(--iptc); background: var(--iptc-bg); padding: 10px 14px; margin: 12px 0; } #tr-dlg .tr-btn { margin-top: 16px; }
+    .tr-th { font: inherit; font-weight: 600; color: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; overflow-wrap: anywhere; } .tr-th:hover { text-decoration: underline dotted; }
+    #tr-table th.tr-edited { background: var(--iptc-bg); box-shadow: inset 0 -2px 0 var(--iptc); } .tr-edited i, .tr-th i { font-style: normal; color: var(--iptc); } .tr-chip.tr-edited { border-color: var(--iptc-border); background: var(--iptc-bg); }
+    #tr-table th.tr-editing { min-width: 300px; max-width: none; background: var(--surface); box-shadow: inset 0 0 0 2px var(--iptc); font-weight: 400; }
+    .tr-ed { display: flex; flex-direction: column; gap: 8px; } .tr-ed label.tr-lbl { display: flex; flex-direction: column; gap: 4px; } .tr-ed input[name=label], .tr-ed textarea { font: inherit; font-size: .78rem; text-transform: none; letter-spacing: 0; color: var(--text); padding: 6px 8px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg); resize: vertical; }
+    .tr-ed-mode { display: flex; gap: 14px; font-size: .74rem; } .tr-ed small { color: var(--text-muted); font-size: .68rem; line-height: 1.4; } .tr-ed-acts { display: flex; flex-wrap: wrap; gap: 6px; } .tr-ed .tr-btn { padding: 5px 10px; font-size: .72rem; } .tr-primary { background: var(--text); color: var(--surface); border-color: var(--text); }
+    #tr-table td.tr-out { background: var(--bg); color: var(--text-muted); font-style: italic; }
+    .tr-confs { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); } .tr-confs > .tr-act { margin: 2px 0 4px; }
+    .tr-conf p { margin-top: 6px; } .tr-claims { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin: 10px 0 4px; }
+    .tr-claim { flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px; font: inherit; font-size: .78rem; line-height: 1.45; text-align: left; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 9px 11px; cursor: pointer; } .tr-claim:hover { border-color: var(--iptc); }
+    .tr-claim-hd { font-weight: 600; overflow-wrap: anywhere; } .tr-claim-hd em { font: 500 .66rem 'DM Mono', monospace; font-style: normal; color: var(--iptc); margin-right: 6px; } .tr-says { overflow-wrap: anywhere; }
+    .tr-vs { align-self: center; font-weight: 700; font-size: 1.1rem; color: var(--pii-c); }
+    .tr-name { font-size: .95rem; overflow-wrap: anywhere; } .tr-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; } #tr-dlg .tr-acts .tr-btn { margin: 0; text-decoration: none; line-height: 1.4; } .tr-acts .tr-btn:hover:not(:disabled) { border-color: var(--iptc); color: var(--iptc); } .tr-acts .tr-btn:disabled { opacity: .5; cursor: not-allowed; } .tr-acts small { color: var(--text-muted); }
+    /* Ver en contexto */
+    #ctx { margin: 0 0 0 auto; padding: 0; border: 0; width: min(1440px, 94vw); max-width: none; height: 100vh; height: 100dvh; max-height: none; background: var(--bg); color: var(--text); overflow: hidden; } #ctx::backdrop { background: rgba(24,22,15,.45); }
+    #ctx[open] { animation: ctx-slide .22s ease-out; } @keyframes ctx-slide { from { transform: translateX(60px); opacity: 0; } } @media (prefers-reduced-motion: reduce) { #ctx[open] { animation: none; } }
+    .ctx-in { display: flex; flex-direction: column; height: 100%; } .ctx-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 340px; }
+    .ctx-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface); font-size: .82rem; } .ctx-bar em { font: 500 .72rem 'DM Mono', monospace; color: var(--iptc); } .ctx-bar b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ctx-bar a { text-decoration: none; } .ctx-bar .tr-btn { padding: 6px 12px; } .ctx-bar .tr-btn:disabled { opacity: .4; } #ctx-page { color: var(--text-muted); white-space: nowrap; margin-right: 6px; }
+    #ctx-view { position: relative; overflow: auto; scrollbar-gutter: stable; padding: 20px; background: #e4e2dc; } .ctx-msg { text-align: center; padding: 60px 20px; font-size: .85rem; }
+    .ctx-sheet { position: relative; margin: 0 auto 16px; background: #fff; box-shadow: 0 1px 6px rgba(24,22,15,.22); } .ctx-sheet canvas { display: block; width: 100%; height: 100%; }
+    .ctx-hl { position: absolute; cursor: pointer; background: rgba(255,214,64,.28); border-bottom: 2px solid #d9a400; mix-blend-mode: multiply; } .ctx-hl:hover { background: rgba(255,214,64,.5); } .ctx-hl.on { z-index: 2; background: rgba(255,196,0,.65); border-bottom-color: #b36b00; box-shadow: 0 0 0 2px rgba(179,107,0,.45); }
+    .ctx-side { display: flex; flex-direction: column; min-height: 0; border-left: 1px solid var(--border); background: var(--surface); padding-top: 14px; } .ctx-side > .tr-lbl { padding: 0 16px 10px; } #ctx-list { overflow: auto; flex: 1; border-top: 1px solid var(--border); }
+    #ctx-note { margin: 0 16px 12px; padding: 8px 10px; border: 1px solid var(--pii-h-border); background: var(--pii-h-bg); color: var(--pii-h); border-radius: 6px; font-size: .74rem; line-height: 1.45; } #ctx-note:empty { display: none; }
+    .ctx-item { display: block; width: 100%; font: inherit; font-size: .8rem; line-height: 1.45; text-align: left; color: var(--text); background: none; border: 0; border-bottom: 1px solid var(--border); border-left: 4px solid transparent; padding: 11px 14px 11px 12px; cursor: pointer; } .ctx-item:hover:not(:disabled) { background: var(--bg); } .ctx-item.on { background: #fff6d6; border-left-color: #d9a400; } .ctx-item:focus-visible { outline: 2px solid var(--iptc); outline-offset: -2px; } .ctx-item:disabled { cursor: default; color: var(--text-muted); font-style: italic; }
+    .ctx-top { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 3px; } .ctx-pg { font: 500 .66rem 'DM Mono', monospace; color: var(--text-muted); white-space: nowrap; } .ctx-val { display: block; overflow-wrap: anywhere; } .ctx-val i { font-style: normal; font-weight: 700; }
+    @media (max-width: 860px) { #ctx { width: 100%; } .ctx-body { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) 38%; } .ctx-side { border-left: 0; border-top: 1px solid var(--border); } .ctx-bar { flex-wrap: wrap; } .ctx-bar b { flex-basis: 70%; } }
+    .tabs { overflow-x: auto; overflow-y: hidden; } .tab-btn { white-space: nowrap; }
+    main { max-width: 1280px; }
+    /* Barra de scroll siempre presente y recorrido mínimo: los tabs no se mueven al cambiar de panel. */
+    html { overflow-y: scroll; } body { min-height: calc(100vh + 96px); }
+
+    /* ===== FRAUDE (Afianza) ===== */
+    .fr-item { border: 1px solid var(--border); border-left: 4px solid #c9872b; border-radius: 6px; padding: 13px 16px; margin-top: 10px; }
+    .fr-item.critical { border-left-color: #5c0f0f; } .fr-item.high { border-left-color: var(--pii-c); } .fr-item.low { border-left-color: var(--pii-m); }
+    .fr-hd { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .86rem; } .fr-meta { margin-left: auto; color: var(--text-muted); font-size: .72rem; }
+    .fr-tag { font: 500 .62rem 'DM Mono', monospace; text-transform: uppercase; border-radius: 4px; padding: 3px 7px; border: 1px solid; }
+    .fr-tag.critical { background: #5c0f0f; color: #fff; } .fr-tag.high { background: var(--pii-c-bg); color: var(--pii-c); } .fr-tag.medium { background: var(--pii-h-bg); color: var(--pii-h); } .fr-tag.low { background: var(--pii-m-bg); color: var(--pii-m); }
+    .fr-ul, .fr-ol { margin: 8px 0 0 18px; font-size: .81rem; line-height: 1.55; } .fr-ul li, .fr-ol li { margin-bottom: 4px; padding-left: 4px; } .fr-ul li::marker, .fr-ol li::marker { color: var(--iptc); } .fr-ol { margin-top: 0; } .fr-ol li { margin-bottom: 8px; }
+    .fr-sub { font-size: .9rem; margin: 22px 0 4px; } .fr-none { font-size: .8rem; color: var(--text-muted); }
+    .fr-score { display: flex; gap: 24px; align-items: center; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; } .fr-score.critical, .fr-score.high { background: var(--pii-c-bg); } .fr-score.medium { background: var(--pii-h-bg); } .fr-score.low { background: var(--pii-m-bg); }
+    .fr-num { font-size: 2.6rem; font-weight: 600; line-height: 1; white-space: nowrap; } .fr-num small { font-size: .8rem; color: var(--text-muted); margin-left: 4px; } .fr-score-b { flex: 1; min-width: 0; }
+    .fr-bar { height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; margin-top: 6px; } .fr-bar i { display: block; height: 100%; background: #c9872b; } .fr-bar i.critical, .fr-bar i.high { background: var(--pii-c); } .fr-bar i.low { background: var(--pii-m); }
+    .fr-legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 16px; align-items: center; font-size: .74rem; }
+    .fr-row { display: grid; grid-template-columns: 130px 1fr 44px; gap: 14px; align-items: center; font-size: .8rem; padding: 6px 0; } .fr-row .fr-bar { margin: 0; } .fr-row b { text-align: right; }
+    .fr-item.info { border-left-color: var(--fibo); } .fr-tag.info { background: var(--fibo-bg); color: var(--fibo); } .fr-bar i.plain { background: var(--iptc); } .dot.CRITICAL { background: #5c0f0f; }
+    .fr-ab { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; } .fr-ab > div { background: var(--bg); border-radius: 6px; padding: 10px 12px; } .fr-ab p { font-size: .81rem; line-height: 1.5; margin-top: 4px; } .fr-lead { font-size: .84rem; line-height: 1.5; margin-bottom: 10px; }
+    .fr-ner { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 4px 28px; } .fr-pct { font: 500 .68rem 'DM Mono', monospace; color: var(--text-muted); } .fr-taxo small { display: block; color: var(--text-muted); font-size: .7rem; } .g2.af-stack { grid-template-columns: 1fr; }
+    @media (max-width: 680px) { .fr-ab { grid-template-columns: 1fr; } }
   </style>
 <script src="./AI Use Case Suite — Logicalis_files/pdf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/i18next@23.11.5/dist/umd/i18next.min.js"></script>
-<script src="./locales/es.js"></script>
-<script src="./locales/en.js"></script>
-<script src="./locales/de.js"></script>
+<script src="./AI Use Case Suite — Logicalis_files/i18next.min.js"></script>
+<script src="js/i18next-fallback.js?v=5"></script>
+<script src="./locales/es.js?v=2"></script>
+<script src="./locales/en.js?v=3"></script>
+<script src="./locales/de.js?v=2"></script>
 <script src="./prompts/es.js"></script>
 <script src="./prompts/en.js"></script>
 <script src="./prompts/de.js"></script>
+  <script src="locales/afianza.js?v=11"></script>
+  <script src="prompts/tabular.js?v=9"></script>
+  <script src="prompts/suite-afianza.js?v=5"></script>
 <script src="./js/i18n.js"></script></head>
 
 <body>
@@ -1442,6 +1539,7 @@
       <button class="tab-btn active" data-tab="doc" data-sub="NLP · NER · PII · Taxonomy" data-i18n="tabs.doc" data-i18n-sub="tabs.docSub">Document Intelligence</button>
       <button class="tab-btn" data-tab="contracts" data-sub="Cláusulas · Compliance · Due Diligence" data-i18n="tabs.contracts" data-i18n-sub="tabs.contractsSub">Contratos &amp; Compliance</button>
       <button class="tab-btn" data-tab="fraud" data-sub="Fraude · Riesgo · Alertas" data-i18n="tabs.fraud" data-i18n-sub="tabs.fraudSub">Fraude &amp; Riesgo</button>
+      <button class="tab-btn" data-tab="tabular" data-sub="" data-i18n="tabs.tabular" data-i18n-sub="tabs.tabularSub">Due Diligence</button>
     </div>
 
     <section class="tab-panel" id="panel-doc" style="display: block;">
@@ -1906,6 +2004,67 @@
 
       </div>
     </section>
+    <section class="tab-panel" id="panel-tabular" style="display: none;">
+      <div class="hero">
+        <h1 data-i18n-html="tabular.heroTitle"></h1>
+        <p data-i18n="tabular.heroText"></p>
+        <div class="caps">
+          <div class="cap-pill"><span class="cap-dot" style="background:#4db87a"></span><span data-i18n="tabular.capMulti"></span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--iptc)"></span><span data-i18n="tabular.capQuote"></span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--pii-c)"></span><span data-i18n="tabular.capCross"></span></div>
+          <div class="cap-pill"><span class="cap-dot" style="background:var(--fibo)"></span><span data-i18n="tabular.capCsv"></span></div>
+        </div>
+      </div>
+      <div class="input-area">
+        <span class="tr-lbl" data-i18n="tabular.template"></span>
+        <div class="tr-tpls" id="tr-templates"></div>
+        <span class="tr-lbl" data-i18n="tabular.fields"></span>
+        <div class="tr-chips" id="tr-fields"></div>
+        <div class="tr-add"><input id="tr-new" maxlength="200" data-i18n-placeholder="tabular.addField" data-i18n-aria="tabular.addField"><button type="button" class="tr-btn" id="tr-add" data-i18n="tabular.add"></button></div>
+        <div class="drop-zone" id="drop-zone-t">
+          <div class="drop-icon">
+          <svg viewBox="0 0 44 44" fill="none">
+            <rect x="8" y="4" width="20" height="28" rx="2.5" stroke="#18160f" stroke-width="1.6"></rect>
+            <path d="M24 4l8 8" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+            <rect x="24" y="4" width="8" height="8" rx="1.5" stroke="#18160f" stroke-width="1.6"></rect>
+            <circle cx="33" cy="33" r="7" stroke="#18160f" stroke-width="1.6"></circle>
+            <path d="M33 30v6M30 33h6" stroke="#18160f" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+        </div>
+          <p class="drop-title" data-i18n="tabular.dropTitle"></p>
+          <p class="drop-hint" data-i18n="common.dropHint"></p>
+          <div class="fmts"><span class="fmt">PDF</span><span class="fmt">DOCX</span><span class="fmt">TXT</span></div>
+          <input type="file" id="file-input-t" accept=".pdf,.docx,.txt" multiple style="display:none">
+        </div>
+        <div class="tr-chips" id="tr-files"></div>
+        <div class="action-row">
+          <button class="btn-run" id="btn-run-t" disabled><div class="spin"></div><span class="lbl" data-i18n="tabular.run"></span></button>
+          <button type="button" class="tr-btn" id="tr-clear" data-i18n="tabular.clear"></button>
+          <button type="button" class="tr-btn" id="tr-load" data-i18n="tabular.load"></button>
+          <input type="file" id="tr-load-input" accept=".csv,.json" style="display:none">
+          <select class="tr-btn" id="tr-demo" hidden aria-label="Demo sin conexión"></select>
+          <span class="status-txt" id="status-txt-t"></span>
+        </div>
+        <div class="err" id="err-t"></div>
+      </div>
+      <div class="results" id="results-t">
+        <div class="tr-saved" id="tr-saved"></div>
+        <div class="tr-legend" id="tr-legend"></div>
+        <div class="sec-div"><div class="sec-line"></div><span class="sec-lbl" data-i18n="tabular.sec"></span><div class="sec-line"></div></div>
+        <div class="card" id="tr-alerts"></div>
+        <div class="sec-div"><div class="sec-line"></div><span class="sec-lbl" data-i18n="tabular.table"></span><div class="sec-line"></div></div>
+        <div class="tr-scroll"><table id="tr-table"></table></div>
+        <div class="tr-foot"><span data-i18n="tabular.disclaimer"></span><span id="tr-usage"></span><span><button type="button" class="tr-btn" id="tr-save" data-i18n="tabular.save"></button> <button type="button" class="tr-btn" id="tr-export" data-i18n="tabular.export"></button></span></div>
+      </div>
+      <dialog id="tr-dlg"><div id="tr-dlg-body"></div><button type="button" class="tr-btn" id="tr-close" data-i18n="tabular.close"></button></dialog>
+      <dialog id="ctx" data-i18n-aria="tabular.ctxTitle"><div class="ctx-in">
+        <div class="ctx-bar"><em id="ctx-id"></em><b id="ctx-name"></b><span id="ctx-page" aria-live="polite"></span>
+          <button type="button" class="tr-btn" id="ctx-out" data-i18n-aria="tabular.ctxOut">−</button><button type="button" class="tr-btn" id="ctx-in" data-i18n-aria="tabular.ctxIn">+</button>
+          <a class="tr-btn" id="ctx-dl" data-i18n="tabular.ctxDownload"></a><button type="button" class="tr-btn" id="ctx-close" data-i18n-aria="tabular.close">✕</button></div>
+        <div class="ctx-body"><div id="ctx-view" tabindex="0"></div>
+          <aside class="ctx-side"><span class="tr-lbl" data-i18n="tabular.ctxFields"></span><p id="ctx-note" role="status"></p><div id="ctx-list"></div></aside></div>
+      </div></dialog>
+    </section>
   </main>
 
   <footer>
@@ -1922,12 +2081,9 @@
 
   <script src="./AI Use Case Suite — Logicalis_files/mammoth.browser.min.js"></script>
   <script>
-    // Load PDF.js dynamically
-    let pdfjsLib = null;
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-    s.onload = () => { pdfjsLib = window.pdfjsLib; pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; };
-    document.head.appendChild(s);
+    // PDF.js 3.11.174 en local (cargado en <head>), para que funcione sin internet.
+    const pdfjsLib = window.pdfjsLib;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('./AI Use Case Suite — Logicalis_files/pdf.worker.min.js', document.baseURI).href;
 
     let currentFile = null;
     const $ = id => document.getElementById(id);
@@ -2188,7 +2344,8 @@
       let text = null;
       try { text = await extractText(file); } catch (e) { }
       if (text && text.length > 80) {
-        const trunc = text.length > 12000 ? text.substring(0, 12000) + '\n...' + P.wrap.truncated : text;
+        const MAX = 60000; // contratos largos (Demo docs/…/contratos_large)
+        const trunc = text.length > MAX ? text.substring(0, MAX) + '\n...' + P.wrap.truncated : text;
         return { kind: 'text', text: `\n\n${P.wrap.document} ${label} (${file.name}):\n<doc_${label.toLowerCase()}>\n${trunc}\n</doc_${label.toLowerCase()}>` };
       }
       if (ext === 'pdf') {
@@ -2271,7 +2428,7 @@
           headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
           body: JSON.stringify({
             model: 'claude-haiku-4-5-20251001',
-            max_tokens: 8000,
+            max_tokens: 12000,
             system: P.contracts.system,
             messages: [{ role: 'user', content }]
           })
@@ -2519,6 +2676,16 @@
       }));
     }
   </script>
+  <script src="js/pdf-context.js?v=8"></script>
+  <script src="js/tabular-review.js?v=13"></script>
+  <script src="data/demo-offline/index.js?v=3"></script>
+  <script src="js/demo-offline.js?v=2"></script>
+  <script src="js/ui-afianza.js?v=5"></script>
+  <script src="js/doc-afianza.js?v=5"></script>
+  <script src="js/contracts-afianza.js?v=5"></script>
+  <script src="js/fraud-afianza.js?v=5"></script>
+  <script src="data/demo-offline/suite-index.js?v=1"></script>
+  <script src="js/offline-suite.js?v=1"></script>
 
 
 </body></html>

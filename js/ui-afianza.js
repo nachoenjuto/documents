@@ -1,4 +1,4 @@
-// Piezas de presentación comunes a los tres tabs originales en index_afianza.html.
+// Piezas de presentación comunes a los tres tabs originales en index.html.
 window.AF = (function () {
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const list = v => (Array.isArray(v) ? v : []).filter(x => x && (typeof x === 'object' || String(x).trim()));
