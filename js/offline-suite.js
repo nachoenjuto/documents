@@ -18,7 +18,8 @@
     ui[tab].saved = saved;
     ui[tab].banner.textContent = saved ? t(saved.synthetic ? 'offline.savedSynthetic' : 'offline.savedFrom', saved) : '';
   }
-  function syncSave(tab) { ui[tab].save.disabled = !(TABS[tab].last() && $(TABS[tab].results).classList.contains('show')); }
+  // «Guardar análisis» va al pie de los resultados, como en Due Diligence, y solo se ve si hay un resultado.
+  function syncSave(tab) { ui[tab].foot.hidden = !(TABS[tab].last() && $(TABS[tab].results).classList.contains('show')); }
   function clear(tab) {
     TABS[tab].clear.forEach(id => $(id).click());
     $(TABS[tab].results).classList.remove('show'); banner(tab, null); setErr(tab, ''); syncSave(tab);
@@ -67,7 +68,10 @@
   Object.entries(TABS).forEach(([tab, cfg]) => {
     const row = $(cfg.run).closest('.action-row'), status = $(cfg.status);
     const mk = (tag, cls) => { const e = document.createElement(tag); e.className = cls; if (tag === 'button') e.type = 'button'; status.before(e); return e; };
-    const u = ui[tab] = { clear: mk('button', 'tr-btn'), load: mk('button', 'tr-btn'), save: mk('button', 'tr-btn'), demo: mk('select', 'tr-btn') };
+    const u = ui[tab] = { clear: mk('button', 'tr-btn'), load: mk('button', 'tr-btn'), demo: mk('select', 'tr-btn') };
+    u.foot = document.createElement('div'); u.foot.className = 'tr-foot'; u.foot.hidden = true;
+    u.save = document.createElement('button'); u.save.type = 'button'; u.save.className = 'tr-btn'; u.save.style.marginLeft = 'auto';
+    u.foot.append(u.save); $(cfg.results).append(u.foot);
     u.input = document.createElement('input'); u.input.type = 'file'; u.input.accept = '.json'; u.input.hidden = true; row.append(u.input);
     u.banner = document.createElement('div'); u.banner.className = 'tr-saved'; $(cfg.results).prepend(u.banner);
     u.clear.addEventListener('click', () => clear(tab));

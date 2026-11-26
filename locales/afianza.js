@@ -50,7 +50,7 @@ Object.assign(window.I18N.en.doc, { datum: 'What data it is', example: 'Example'
 Object.assign(window.I18N.de.doc, { datum: 'Art der Daten', example: 'Beispiel' });
 // Limpiar, cargar y guardar análisis y demo sin conexión en Document Intelligence, Contratos y Fraude (js/offline-suite.js).
 window.I18N.es.offline = {
-  clear: 'Limpiar', load: 'Cargar análisis', save: 'Guardar análisis', demo: 'Demo sin conexión', pick: 'Elige un caso…',
+  clear: 'Limpiar datos', load: 'Cargar análisis', save: 'Guardar análisis', demo: 'Demo sin conexión', pick: 'Elige un caso…',
   loading: 'Cargando {{name}}…', failed: 'No se pudo cargar la demo {{name}}. Comprueba que existe data/demo-offline/.',
   badFile: 'No se pudo cargar {{name}}: {{message}}', badFormat: 'no es un análisis guardado de esta aplicación', wrongTab: 'es un análisis de la pestaña {{tab}}',
   savedFrom: 'Análisis guardado: {{name}}{{date}}. No se ha ejecutado ahora.',
