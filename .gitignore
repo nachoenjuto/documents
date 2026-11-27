@@ -9,3 +9,8 @@ Demo docs/clientes/afianza/casos-de-uso-afianza.md
 Demo docs/clientes/afianza/trampas.md
 Demo docs/clientes/afianza/trampas_large.md
 Kit_Presentaciones_Logicalis/
+
+# Despliegue en Cloudflare
+dist/
+.wrangler/
+.dev.vars

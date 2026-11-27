@@ -1,0 +1,16 @@
+// Worker que sirve la demo con contraseña. Contraseña: secreto APP_PASSWORD (make secret), nunca en el código.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ai-use-case-suite",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    // dist/ solo contiene la app (make build); el resto del repositorio no se publica.
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "observability": { "enabled": true }
+}

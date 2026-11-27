@@ -89,6 +89,20 @@ Notes:
 - The dividend files include oddities worth detecting (balance at record date different from opening balance, a reinvestment confirmation, mixed layouts).
 - The CSV has planted fraud signals: payments split just under 500 €, the same consultancy paid repeatedly, an expense during a registered holiday, a jewellery purchase booked as office supplies, a self-approved expense and a same-day approval of a 4,850 € purchase. Only the headers and text values change between languages; amounts and ISO dates do not.
 
+## Publishing (password-protected)
+
+The demo is served by a Cloudflare Worker that asks for a password before returning any file. The password is the Worker secret `APP_PASSWORD`; it is never in the code. Architecture: [`_docs/arquitectura.md`](_docs/arquitectura.md).
+
+| Command | What it does |
+|---|---|
+| `make build` | Copies only the app files (allow-list in `scripts/build.sh`) to a folder outside OneDrive; CI uses `dist/` |
+| `make dev` | Runs the Worker locally on <http://localhost:8787>, password from `.dev.vars` (`APP_PASSWORD=…`, git-ignored) |
+| `make secret` | Sets or changes the password (prompted, not echoed) |
+| `make deploy` | Publishes to Cloudflare (`npx wrangler login` once first) |
+| `make logs` | Live Worker logs |
+
+Sessions last 12 hours; `/logout` ends one. Changing the password invalidates every open session. `.github/workflows/deploy.yml` deploys on every push to `main` once the repository variable `CLOUDFLARE_DEPLOY=true` and the secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` exist.
+
 ## Security
 
 - Never commit API keys. Keep any local key file out of Git (add it to `.gitignore`); the app only needs the key pasted in the browser.
