@@ -1109,6 +1109,10 @@
 
     .drop-zone-sm {
       padding: 28px 18px;
+      min-height: 201px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .drop-zone-sm .drop-icon {
@@ -1449,10 +1453,10 @@
     .ctx-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--border); background: var(--surface); font-size: .82rem; } .ctx-bar em { font: 500 .72rem 'DM Mono', monospace; color: var(--iptc); } .ctx-bar b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ctx-bar a { text-decoration: none; } .ctx-bar .tr-btn { padding: 6px 12px; } .ctx-bar .tr-btn:disabled { opacity: .4; } #ctx-page { color: var(--text-muted); white-space: nowrap; margin-right: 6px; }
     #ctx-view { position: relative; overflow: auto; scrollbar-gutter: stable; padding: 20px; background: #e4e2dc; } .ctx-msg { text-align: center; padding: 60px 20px; font-size: .85rem; }
     .ctx-sheet { position: relative; margin: 0 auto 16px; background: #fff; box-shadow: 0 1px 6px rgba(24,22,15,.22); } .ctx-sheet canvas { display: block; width: 100%; height: 100%; }
-    .ctx-hl { position: absolute; cursor: pointer; background: rgba(255,214,64,.28); border-bottom: 2px solid #d9a400; mix-blend-mode: multiply; } .ctx-hl:hover { background: rgba(255,214,64,.5); } .ctx-hl.on { z-index: 2; background: rgba(255,196,0,.65); border-bottom-color: #b36b00; box-shadow: 0 0 0 2px rgba(179,107,0,.45); }
+    .ctx-hl { position: absolute; cursor: pointer; background: rgba(255,214,64,.28); border-bottom: 2px solid #d9a400; mix-blend-mode: multiply; } .ctx-hl:hover { background: rgba(255,214,64,.5); } .ctx-hl.on { z-index: 2; background: rgba(77,184,122,.5); border-bottom-color: #2e8a57; box-shadow: 0 0 0 2px rgba(46,138,87,.5); }
     .ctx-side { display: flex; flex-direction: column; min-height: 0; border-left: 1px solid var(--border); background: var(--surface); padding-top: 14px; } .ctx-side > .tr-lbl { padding: 0 16px 10px; } #ctx-list { overflow: auto; flex: 1; border-top: 1px solid var(--border); }
     #ctx-note { margin: 0 16px 12px; padding: 8px 10px; border: 1px solid var(--pii-h-border); background: var(--pii-h-bg); color: var(--pii-h); border-radius: 6px; font-size: .74rem; line-height: 1.45; } #ctx-note:empty { display: none; }
-    .ctx-item { display: block; width: 100%; font: inherit; font-size: .8rem; line-height: 1.45; text-align: left; color: var(--text); background: none; border: 0; border-bottom: 1px solid var(--border); border-left: 4px solid transparent; padding: 11px 14px 11px 12px; cursor: pointer; } .ctx-item:hover:not(:disabled) { background: var(--bg); } .ctx-item.on { background: #fff6d6; border-left-color: #d9a400; } .ctx-item:focus-visible { outline: 2px solid var(--iptc); outline-offset: -2px; } .ctx-item:disabled { cursor: default; color: var(--text-muted); font-style: italic; }
+    .ctx-item { display: block; width: 100%; font: inherit; font-size: .8rem; line-height: 1.45; text-align: left; color: var(--text); background: none; border: 0; border-bottom: 1px solid var(--border); border-left: 4px solid transparent; padding: 11px 14px 11px 12px; cursor: pointer; } .ctx-item:hover:not(:disabled) { background: var(--bg); } .ctx-item.on { background: #e6f5ec; border-left-color: #2e8a57; } .ctx-item:focus-visible { outline: 2px solid var(--iptc); outline-offset: -2px; } .ctx-item:disabled { cursor: default; color: var(--text-muted); font-style: italic; }
     .ctx-top { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 3px; } .ctx-pg { font: 500 .66rem 'DM Mono', monospace; color: var(--text-muted); white-space: nowrap; } .ctx-val { display: block; overflow-wrap: anywhere; } .ctx-val i { font-style: normal; font-weight: 700; }
     @media (max-width: 860px) { #ctx { width: 100%; } .ctx-body { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) 38%; } .ctx-side { border-left: 0; border-top: 1px solid var(--border); } .ctx-bar { flex-wrap: wrap; } .ctx-bar b { flex-basis: 70%; } }
     .tabs { overflow-x: auto; overflow-y: hidden; } .tab-btn { white-space: nowrap; }
