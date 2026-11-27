@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build dist/
-        run: ./scripts/build.sh
+        run: bash scripts/build.sh
       - name: Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:

@@ -8,7 +8,7 @@ run: ## Servidor local sin contraseña (como antes)
 	python3 -m http.server 8765 --bind 127.0.0.1
 
 build: ## Copia la app a $(DIST)
-	./scripts/build.sh "$(DIST)"
+	bash scripts/build.sh "$(DIST)"
 
 dev: build ## Worker en local con contraseña (lee .dev.vars)
 	$(WRANGLER) dev --port 8787 --assets "$(DIST)"
